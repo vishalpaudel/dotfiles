@@ -1,0 +1,70 @@
+--accessed [1m[[0;36m-u[0;1m][m use the accessed timestamp field
+--across [1m[[0;36m-x[0;1m][m sort the grid across, rather than downwards
+--all [1m[[0;36m-a[0;1m][m show hidden and 'dot' files
+--binary [1m[[0;36m-b[0;1m][m list file sizes with binary prefixes
+--blocks [1m[[0;36m-S[0;1m][m show number of file system blocks
+--bytes [1m[[0;36m-B[0;1m][m list file sizes in bytes, without any prefixes
+--changed use the changed timestamp field
+--classify [1m[[0;36m-F[0;1m][m display type indicator by file names
+--colo[u]r=WHENwhen to use terminal colours (always, auto, never)
+--created [1m[[0;36m-U[0;1m][m use the created timestamp field
+--extended list each file's extended attributes and sizes
+--git list each file's Git status, if tracked or ignored
+--git-ignore ignore files mentioned in '.gitignore'
+--grid [1m[[0;36m-G[0;1m][m display entries as a grid (default)
+--group [1m[[0;36m-g[0;1m][m list each file's group
+--group-directories-first  list directories before other files
+--header [1m[[0;36m-h[0;1m][m add a header row to each column
+--help [1m[[0;36m-?[0;1m][m show list of command-line options
+--icons display icons
+--ignore-glob GLOBS [1m[[0;36m-I[0;1m][m glob patterns (pipe-separated) of files to ignore
+--inode [1m[[0;36m-i[0;1m][m list each file's inode number
+--level DEPTH [1m[[0;36m-L[0;1m][m limit the depth of recursion
+--links [1m[[0;36m-H[0;1m][m list each file's number of hard links
+--list-dirs [1m[[0;36m-d[0;1m][m list directories as files; don't list their contents
+--long [1m[[0;36m-l[0;1m][m display extended file metadata as a table
+--modified [1m[[0;36m-m[0;1m][m use the modified timestamp field
+--no-filesize suppress the filesize field
+--no-icons don't display icons (always overrides --icons)
+--no-permissions suppress the permissions field
+--no-time suppress the time field
+--no-user suppress the user field
+--numeric [1m[[0;36m-n[0;1m][m list numeric user and group IDs
+--octal-permissions  list each file's permission in octal format
+--oneline [1m[[0;36m-1[0;1m][m display one entry per line
+--only-dirs [1m[[0;36m-D[0;1m][m list only directories
+--recurse [1m[[0;36m-R[0;1m][m recurse into directories
+--reverse [1m[[0;36m-r[0;1m][m reverse the sort order
+--sort SORT_FIELD [1m[[0;36m-s[0;1m][m which field to sort by
+--time FIELD [1m[[0;36m-t[0;1m][m which timestamp field to list (modified, accessed, created)
+--time-style how to format timestamps (default, iso, long-iso, full-iso)
+--tree [1m[[0;36m-T[0;1m][m recurse into directories as a tree
+--version [1m[[0;36m-v[0;1m][m show version of exa
+-1 display one entry per line
+-? show list of command-line options
+-B list file sizes in bytes, without any prefixes
+-D list only directories
+-F display type indicator by file names
+-G display entries as a grid (default)
+-H list each file's number of hard links
+-I GLOBS glob patterns (pipe-separated) of files to ignore
+-L DEPTH limit the depth of recursion
+-R recurse into directories
+-S show number of file system blocks
+-T recurse into directories as a tree
+-U use the created timestamp field
+-a show hidden and 'dot' files
+-b list file sizes with binary prefixes
+-d list directories as files; don't list their contents
+-g list each file's group
+-h add a header row to each column
+-i list each file's inode number
+-l display extended file metadata as a table
+-m use the modified timestamp field
+-n list numeric user and group IDs
+-r reverse the sort order
+-s SORT_FIELD which field to sort by
+-t FIELD which timestamp field to list (modified, accessed, created)
+-u use the accessed timestamp field
+-v show version of exa
+-x sort the grid across, rather than downwards

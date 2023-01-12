@@ -1,0 +1,5 @@
+ble-decode-key/bind 'emacs' '67108978' 'ble/widget/.EDIT_COMMAND '\''__fzf_history__'\'''
+ble-decode-key/bind 'emacs' '67108980' 'ble/widget/.EDIT_COMMAND '\''fzf-file-widget'\'''
+ble-decode-key/bind 'emacs' '134217827' 'ble/widget/.MACRO 32 2 11 32 21 96 95 95 102 122 102 95 99 100 95 95 96 27 5 27 114 13 25 8 27 32 25 27 121 24 24 4'
+ble-decode-key/bind 'emacs' '134217842' 'ble/widget/redraw-line'
+ble-decode-key/bind 'emacs' '67108986' 'ble/widget/vi-editing-mode'

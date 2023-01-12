@@ -1,0 +1,133 @@
+# blerc -*- mode: sh; mode: sh-bash -*-
+# Settings for ble.sh (borrowed from https://github.com/akinomyoga/ble.sh)
+
+# DOES FOR ME, BUT MAKES THE SHELL SLOW OTHERWISE
+
+
+# BASIC SETTINGS
+shopt -u no_empty_cmd_completion
+((_ble_bash>=50000)) && shopt -s progcomp_alias
+
+set -o vi
+bleopt emoji_width=
+bleopt indent_offset=2
+bleopt decode_isolated_esc=esc
+bleopt complete_auto_delay=1
+bleopt editor='vim'
+bleopt line_limit_type=editor
+
+bleopt vbell_align=right
+bleopt edit_vbell=1
+
+bleopt char_width_mode=west
+bleopt default_keymap=vi
+bleopt edit_abell=
+bleopt edit_vbell=
+bleopt undo_point=orig
+bleopt history_preserve_point=orig
+bleopt term_cursor_external=5
+bleopt history_share=1
+bleopt filename_ls_colors="$LS_COLORS"
+
+
+# COLOR
+ble-color-setface auto_complete bg=black,fg=gray
+ble-color-setface region                   bg=gray,fg=black
+ble-color-setface region_target            standout,fg=yellow
+ble-color-setface region_match             standout,fg=yellow
+ble-color-setface disabled                 fg=silver
+ble-color-setface overwrite_mode           reverse
+ble-color-setface syntax_default           none
+ble-color-setface syntax_command           bold,fg=green
+ble-color-setface syntax_quoted            fg=yellow
+ble-color-setface syntax_quotation         bold,fg=yellow
+ble-color-setface syntax_expr              fg=purple
+ble-color-setface syntax_error             bold,fg=red,bg=black
+ble-color-setface syntax_varname           italic,bold,fg=purple
+ble-color-setface syntax_delimiter         bold
+ble-color-setface syntax_param_expansion   fg=purple
+ble-color-setface syntax_history_expansion bg=purple,fg=black
+ble-color-setface syntax_function_name     bold,fg=green
+ble-color-setface syntax_comment           fg=gray
+ble-color-setface syntax_glob              bold,italic
+ble-color-setface syntax_brace             bold,italic
+ble-color-setface syntax_tilde             bold,fg=navy
+ble-color-setface syntax_document          none
+ble-color-setface syntax_document_begin    fg=orange
+ble-color-setface command_builtin_dot      copy:syntax_command
+ble-color-setface command_builtin          copy:syntax_command
+ble-color-setface command_alias            copy:syntax_command
+ble-color-setface command_function         copy:syntax_command
+ble-color-setface command_file             copy:syntax_command
+ble-color-setface command_keyword          copy:syntax_command
+ble-color-setface command_jobs             copy:syntax_command
+ble-color-setface command_directory        copy:filename_directory
+ble-color-setface varname_array            copy:syntax_varname
+ble-color-setface varname_empty            copy:syntax_varname
+ble-color-setface varname_export           copy:syntax_varname
+ble-color-setface varname_expr             copy:syntax_varname
+ble-color-setface varname_hash             copy:syntax_varname
+ble-color-setface varname_number           copy:syntax_varname
+ble-color-setface varname_readonly         copy:syntax_varname
+ble-color-setface varname_transform        copy:syntax_varname
+ble-color-setface varname_unset            italic,fg=purple
+ble-color-setface filename_warning         underline,fg=red
+ble-color-setface filename_ls_colors       underline
+
+
+# VIM
+function blerc/vim-load-hook {
+  bleopt keymap_vi_mode_string_nmap:=$'\e[1m-- NORMAL --\e[0m'
+
+  bleopt keymap_vi_mode_name_{insert=INSERT,replace=REPLACE,vreplace=REPLACE}
+  bleopt keymap_vi_mode_name_{visual=VISUAL,select=SELECT}
+  bleopt keymap_vi_mode_name_{linewise=LINE,blockwise=BLOCK}
+
+  # STATUS LINE (SLOW)
+  # if [[ $HOSTNAME == MacBookM1.local ]]; then
+  #   ble-import vim-airline
+  #   bleopt vim_airline_left_sep='▶'
+  #   bleopt vim_airline_left_alt_sep='>'
+  #   bleopt vim_airline_right_sep='◀'
+  #   bleopt vim_airline_right_alt_sep='<'
+  #   bleopt vim_airline_symbol_branch='#'
+  #   bleopt vim_airline_theme=light
+  #   bleopt keymap_vi_mode_show=1
+  # fi
+}
+blehook/eval-after-load keymap_vi blerc/vim-load-hook
+
+
+# PROMPT
+function ble/prompt/backslash:blerc/rps1 {
+  ((COLUMNS>=120)) || return 0
+
+  [[ $_ble_term_TERM == kitty:* ]] &&
+    ble/prompt/print $'\e[1l\e[6h\eV'
+
+  # ATA
+  if [[ $_ble_exec_time_ata ]] && ((_ble_exec_time_LINENO==_ble_edit_LINENO)); then
+    ble/prompt/print $'\e[38:5:69;3m'
+    ble/prompt/backslash:contrib/elapsed
+    ble/prompt/print $'\e[m '
+  fi
+
+  # git info
+  ble/prompt/backslash:contrib/git-info ||
+    ble/prompt/process-prompt-string '\w'
+
+  [[ $_ble_term_TERM == kitty:* ]] &&
+     ble/prompt/print $'\eW'
+
+  return 0
+}
+
+ble-import contrib/prompt-git
+ble-import contrib/prompt-elapsed
+bleopt prompt_rps1='\q{blerc/rps1}'
+bleopt prompt_rps1_transient=1
+
+ble-import -d contrib/config/execmark
+bleopt exec_elapsed_enabled='sys+usr>=1000'
+
+# EOF
