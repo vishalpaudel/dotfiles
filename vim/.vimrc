@@ -87,6 +87,7 @@ Plug 'sentientmachine/pretty-vim-python'
 Plug 'chriskempson/base16-vim'      " Base16 themes
 Plug 'fatih/molokai'                    " Monokai and friends
 Plug 'morhetz/gruvbox'
+Plug 'patstockwell/vim-monokai-tasty'   " My favorite theme
 
 " Writing
 Plug 'junegunn/goyo.vim'               " Distraction free mode
@@ -145,7 +146,7 @@ if exists("+termguicolors")
     set background=dark
     set t_Co=256
 
-    colorscheme monojai
+    colorscheme vim-monokai-tasty
 
 elseif &t_Co < 256
     colorscheme monojai
