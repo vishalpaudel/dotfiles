@@ -8,23 +8,39 @@ set nocompatible  " VI compatible mode is disabled so that VIm things work
 call plug#begin()
 
 " Load plugins
-Plug 'editorconfig/editorconfig-vim'  " Per file editor config
+" Per file editor config
+Plug 'ciaranm/securemodelines'
+Plug 'editorconfig/editorconfig-vim'
 
 " Search
 Plug 'romainl/vim-cool'               " Disables highlight when search is done
 Plug 'haya14busa/incsearch.vim'       " Better incremental search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " FZF plugin, makes Ctrl-P unnecessary
 Plug 'junegunn/fzf.vim'
+Plug 'airblade/vim-rooter'
 
 " Movement
+Plug 'justinmk/vim-sneak'
+Plug 'easymotion/vim-easymotion'
+Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'wikitopian/hardmode'            " Disable arrow keys and similar
+
+" Copy pasting
+" TODO Figure out easyclip family
+Plug 'svermeulen/vim-yoink'
 
 " Text Manipulation
 Plug 'tpope/vim-sensible'             " Some better defaults
+Plug 'tpope/vim-unimpaired'           " Pairs of mappings
 Plug 'tpope/vim-surround'             " Surround with parentheses & co
 Plug 'joom/vim-commentary'            " To comment stuff out
 Plug 'terryma/vim-multiple-cursors'   " Multiple cursors like sublime
+Plug 'godlygeek/tabular'              " For alignment
+Plug 'junegunn/vim-easy-align'        " Easier alignment
 Plug 'foosoft/vim-argwrap'            " convert lists of arguments into blocks of arguments
+Plug 'tpope/vim-endwise'              " Ends control flow indentifiers
+Plug 'tpope/vim-repeat'               " Adds repeat thorugh . to other packages
+Plug 'tpope/vim-speeddating'          " Dates in vim
 
 " GUI enhancements
 Plug 'itchyny/lightline.vim'          " Better Status Bar
@@ -32,30 +48,35 @@ Plug 'mhinz/vim-startify'             " Better start screen
 Plug 'scrooloose/nerdtree'            " File explorer
 Plug 'ryanoasis/vim-devicons'         " Nice filetype icons (slow)
 
+Plug 'sjl/gundo.vim'                  " Undo Tree
+Plug 'simnalamburt/vim-mundo'         " Gundo fork
 Plug 'majutsushi/tagbar'              " Pane with tags
 Plug 'machakann/vim-highlightedyank'  " Highlight yanks
+Plug 'ojroques/vim-oscyank'           " Yank from remote sessions
 Plug 'andymass/vim-matchup'           " Highlight corresponding blocks e.g. if - fi in bash
 Plug 'kshenoy/vim-signature'          " Show marks in the gutter
 Plug 'yggdroot/indentline'            " Shows indentation levels
 Plug 'tpope/vim-eunuch'               " Unix helpers
+Plug 'moll/vim-bbye'                  " optional dependency for vim-symlink
+Plug 'aymericbeaumet/vim-symlink'     " Resolve symlinks before editing, plays nicely with undodir
 
 " Git GUI
 Plug 'airblade/vim-gitgutter'         " Git gutter
 Plug 'tpope/vim-fugitive'             " Git interface
-Plug 'tpope/vim-rhubarb'              " Enable GBrowse from fugitive for GitHub
+Plug 'tpope/vim-rhubarb'                    " Enable GBrowse from fugitive for GitHub
 Plug 'junegunn/gv.vim'                " TIG like navigation for vim
 Plug 'xuyuanp/nerdtree-git-plugin'    " Show status of files in NerdTree
-Plug 'liuchengxu/vista.vim'           " Show functions and classes list like a tree
 Plug 'tveskag/nvim-blame-line'        " Add git blame on line
 
 " Tmux GUI
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'christoomey/vim-tmux-navigator'
-"
+
 " VIM Ui
 Plug 'wellle/context.vim'
 Plug 'psliwka/vim-smoothie'
+
 
 " Autocomplete
 Plug 'ervandew/supertab'
@@ -71,23 +92,40 @@ Plug 'mzlogin/vim-markdown-toc'        " Markdown TOC builder
 Plug 'cespare/vim-toml'                " TOML support
 Plug 'stephpy/vim-yaml'                " YAML support
 Plug 'elzr/vim-json'                   " Better JSON support
+Plug 'rust-lang/rust.vim'              " Rust support
+Plug 'glench/vim-jinja2-syntax'        " Jinja2 support
 Plug 'lervag/vimtex'                   " Latex support
 Plug 'pearofducks/ansible-vim'         " Ansible support
 Plug 'mechatroner/rainbow_csv'         " CSV color coding
 Plug 'ap/vim-css-color'                " CSS colors
-Plug 'frazrepo/vim-rainbow'            " Rainbow parentheses
+Plug 'frazrepo/vim-rainbow'                " Rainbow parentheses
+Plug 'vim-pandoc/vim-pandoc'           " Pandoc support
+Plug 'vim-pandoc/vim-pandoc-syntax'    " Pandoc syntax
 Plug 'chrisbra/colorizer'              " Colorize color codes
+Plug 'vim-scripts/applescript.vim'
 Plug 'pprovost/vim-ps1'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mattn/emmet-vim'
-Plug 'norcalli/nvim-colorizer.lua'     " Faster colorzier (only neovim, reconsider)
+Plug 'norcalli/nvim-colorizer.lua'     " Faster colorzier (only neovim,
+" reconsider)
+Plug 'liuchengxu/vista.vim'
 Plug 'vim-python/python-syntax'
 Plug 'sentientmachine/pretty-vim-python'
+Plug 'isobit/vim-caddyfile'
 
 " Colorschemes
-Plug 'chriskempson/base16-vim'      " Base16 themes
-Plug 'fatih/molokai'                    " Monokai and friends
 Plug 'morhetz/gruvbox'
-Plug 'patstockwell/vim-monokai-tasty'   " My favorite theme
+Plug 'chriskempson/base16-vim'         " Base16 themes
+Plug 'gerw/vim-hilinktrace'            " Syntax Highlighting Tracer
+Plug 'fatih/molokai'                  " Monokai and friends
+Plug 'crusoexia/vim-monokai'
+Plug 'phanviet/vim-monokai-pro'
+Plug 'patstockwell/vim-monokai-tasty'
+Plug 'erichdongubler/vim-sublime-monokai'
+Plug 'flazz/vim-colorschemes'          " Bunch of color schemes
+Plug 'sainnhe/sonokai'                 " Monokai Pro-like scheme
+Plug 'tanvirtin/monokai.nvim'
+Plug 'srcery-colors/srcery-vim'
 
 " Writing
 Plug 'junegunn/goyo.vim'               " Distraction free mode
@@ -133,10 +171,10 @@ endif
 
 " Colorscheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:molokai_original = 0
+" let g:molokai_original = 0
 
 if exists("+termguicolors")
-    set termguicolors
+    " set termguicolors
     " The commands below are needed for tmux + termguicolors
     " This is only necessary if you use "set termguicolors".
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -149,7 +187,7 @@ if exists("+termguicolors")
     colorscheme vim-monokai-tasty
 
 elseif &t_Co < 256
-    colorscheme monojai
+    colorscheme vim-monokai-tasty
     set nocursorline " looks bad in this mode
 endif
 
@@ -540,7 +578,8 @@ let g:limelight_conceal_ctermfg = 'gray'
 
 " * SuperTab
 " Tab goes down instead of up
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabDefaultCompletionType = "<c-n>"
+" let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " GitGutter
 nmap ghs <Plug>(GitGutterStageHunk)
@@ -595,3 +634,5 @@ autocmd BufRead *.rss set filetype=xml
 
 let g:pep8_map='<leader>8'
 let g:vista_default_executive = 'coc'
+
+" let g:lightline = { 'colorscheme': 'molokai' }
