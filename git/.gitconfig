@@ -1,0 +1,40 @@
+[user]
+	name = Vishal Paudel
+	email = 95016059+VishalPaudel@users.noreply.github.com
+[push]
+	default = simple
+[pull]
+	rebase = false
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+[color]
+	ui = auto
+[merge]
+	tool = nvim  #vimdiff
+	conflictstyle = diff3
+	prompt = false
+[mergetool "nvim"]
+	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+	# automatically launch merge tool without displaying a prompt
+[init]
+	defaultBranch = main
+[diff]
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[pager]
+	diff = diff-so-fancy | less --tabs=1,5 -RFX
+	show = diff-so-fancy | less --tabs=1,5 -RFX
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

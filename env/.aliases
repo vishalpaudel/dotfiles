@@ -1,0 +1,102 @@
+#!/usr/bin/env bash
+echo ALIAS FILE
+
+shopt -s expand_aliases
+
+# MY SCRIPTS -------------------------------------------
+for file in ~/.tools/*.sh
+do
+    echo sourcing
+    source "$file"
+done
+
+
+# ALIAS ONLY IF THE 2nd PARAMTER IS DEFINED
+function alias_if_exists() {
+  # Does the alias only if the aliased program is installed
+    if command -v $2 > /dev/null; then
+        alias "$1"="$2"
+    else
+        echo Program $2 was not found
+    fi
+}
+
+# PROGRAM ALIASES
+alias_if_exists 'diff' 'colordiff'
+alias_if_exists 'vim' 'nvim'
+alias_if_exists 'rm' 'trash'
+
+
+# fzf -----------------------------------------
+if command -v fzf > /dev/null; then
+
+  function fzf-history() {
+      local tac
+      if which tac > /dev/null; then
+          tac="tac"
+      else
+          tac="tail -r"
+      fi
+      BUFFER=$(\history -n 1 | fzf)
+      CURSOR=$#BUFFER
+  }
+  # zle -N fzf-history
+  # bindkey '^r' fzf-history
+
+  fh() {
+    print -z $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+  }
+
+  # fkill - kill process
+  fkill() {
+    local pid
+    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+
+    if [ "x$pid" != "x" ]
+    then
+      echo $pid | xargs kill -${1:-9}
+    fi
+  }
+
+  v() {
+    local file
+    if [[ -f $1 ]]; then
+        vim $1
+    else
+        file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && vim "${file}" || return 1
+    fi
+  }
+
+  if command -v subl > /dev/null; then
+    u() {
+      local file
+      file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && subl "${file}" || return 1
+    }
+  fi
+
+  #less on fuzzy find
+  fl() {
+    less $(fzf)
+  }
+
+fi
+
+# EXA --------------------------------------------------
+if [ -x "$(command -v exa)" ]; then
+    alias ls="exa --icons -l"
+    #--grid --classify --color 'always' -a"
+    alias la="exa -a"
+    alias l="exa -1"
+fi
+
+
+# OTHER ALIASES ----------------------------------------------
+alias g++="g++ -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -Werror -std=c++17"
+alias reload="source ~/.bashrc"
+alias crontab="VIM_CRONTAB=true crontab"
+
+
+# LOCAL ALIASES ----------------------------------------------
+if [ -f ~/.local-aliases ]; then
+    source ~/.local-aliases
+fi

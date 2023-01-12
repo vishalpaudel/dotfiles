@@ -1,0 +1,20 @@
+
+echo INPUTRC
+
+set editing-mode vi
+set completion-ignore-case on
+
+# REMOVE BAD HABITS
+# NAVIGATION KEYS MAPPED TO DO NOTHING
+if mode=vi
+    "\eOD":""
+    "\e[D":""
+    "\eOC":""
+    "\e[C":""
+    "\eOA":""
+    "\e[A":""
+    "\eOB":""
+    "\e[B":""
+endif
+# sometimes escape sequence is not enough, use karanbiner
+# https://karabiner-elements.pqrs.org/

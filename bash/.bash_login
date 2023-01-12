@@ -1,0 +1,18 @@
+#!/bin/bash
+echo THE LOGIN FILE
+
+
+### SYS INFO PRINT
+neofetch
+
+# clear
+# printf "\n"
+# printf "   %s\n" "USER: $USER"
+# printf "   %s\n" "DATE: $(date)"
+# printf "   %s\n" "UPTIME: $(uptime)"
+# printf "   %s\n" "HOSTNAME: $(hostname -f)"
+# printf "   %s\n" "KERNEL: $(uname -rms)"
+# printf "\n"
+
+
+# EOF
