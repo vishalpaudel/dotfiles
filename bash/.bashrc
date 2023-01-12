@@ -1,5 +1,5 @@
 #!/bin/bash
-echo BASHRC FILE
+# echo BASHRC FILE
 
 # ENVIRONMENT SETUP --------------------------------
 if [ -f ~/.env ]; then
@@ -48,12 +48,11 @@ fi
 
 # BLESH
 [[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --noattach
+[ -f ~/.blerc ] && source ~/.blerc
+[[ ${BLE_VERSION-} ]] && ble-attach
 
 # BROOT
 source /Users/pogovishal/.config/broot/launcher/bash/br
-
-# BLESH
-[[ ${BLE_VERSION-} ]] && ble-attach
 
 
 # HISTORY
@@ -66,5 +65,8 @@ shopt -s histappend  # appends to history instead of rewriting
 
 # BASIC SETTINGS
 set -o vi
+
+### SYS INFO PRINT
+# neofetch
 
 # EOF

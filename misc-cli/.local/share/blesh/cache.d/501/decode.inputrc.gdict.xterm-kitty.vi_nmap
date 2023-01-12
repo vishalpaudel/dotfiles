@@ -1,4 +1,0 @@
-ble-decode-key/bind 'vi_nmap' '67108978' 'ble/widget/.EDIT_COMMAND '\''__fzf_history__'\'''
-ble-decode-key/bind 'vi_nmap' '67108980' 'ble/widget/.EDIT_COMMAND '\''fzf-file-widget'\'''
-ble-decode-key/bind 'vi_nmap' '134217827' 'ble/widget/.MACRO 26 27 99 26'
-ble-decode-key/bind 'vi_nmap' '67108986' 'ble/widget/emacs-editing-mode'

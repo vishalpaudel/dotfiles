@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-echo ALIAS FILE
+# echo ALIAS FILE
 
 shopt -s expand_aliases
 
 # MY SCRIPTS -------------------------------------------
 for file in ~/.tools/*.sh
 do
-    echo sourcing
     source "$file"
 done
 
