@@ -1,6 +1,6 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-set nocompatible  " VI compatible mode is disabled so that VIm things work
+set nocompatible " VI compatible mode is disabled so that VIm things work
 
 " =============================================================================
 "   PLUGINS
@@ -17,7 +17,7 @@ Plug 'romainl/vim-cool'               " Disables highlight when search is done
 Plug 'haya14busa/incsearch.vim'       " Better incremental search
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }  " FZF plugin, makes Ctrl-P unnecessary
 Plug 'junegunn/fzf.vim'
-Plug 'airblade/vim-rooter'
+" Plug 'airblade/vim-rooter'
 
 " Movement
 Plug 'justinmk/vim-sneak'
@@ -27,7 +27,7 @@ Plug 'wikitopian/hardmode'            " Disable arrow keys and similar
 
 " Copy pasting
 " TODO Figure out easyclip family
-Plug 'svermeulen/vim-yoink'
+" Plug 'svermeulen/vim-yoink'
 
 " Text Manipulation
 Plug 'tpope/vim-sensible'             " Some better defaults
@@ -38,7 +38,7 @@ Plug 'terryma/vim-multiple-cursors'   " Multiple cursors like sublime
 Plug 'godlygeek/tabular'              " For alignment
 Plug 'junegunn/vim-easy-align'        " Easier alignment
 Plug 'foosoft/vim-argwrap'            " convert lists of arguments into blocks of arguments
-Plug 'tpope/vim-endwise'              " Ends control flow indentifiers
+" Interacts with coc Plug 'tpope/vim-endwise'              " Ends control flow indentifiers
 Plug 'tpope/vim-repeat'               " Adds repeat thorugh . to other packages
 Plug 'tpope/vim-speeddating'          " Dates in vim
 
@@ -46,9 +46,9 @@ Plug 'tpope/vim-speeddating'          " Dates in vim
 Plug 'itchyny/lightline.vim'          " Better Status Bar
 Plug 'mhinz/vim-startify'             " Better start screen
 Plug 'scrooloose/nerdtree'            " File explorer
-Plug 'ryanoasis/vim-devicons'         " Nice filetype icons (slow)
+" Plug 'ryanoasis/vim-devicons'         " Nice filetype icons (slow)
 
-Plug 'sjl/gundo.vim'                  " Undo Tree
+" Plug 'sjl/gundo.vim'                  " Undo Tree
 Plug 'simnalamburt/vim-mundo'         " Gundo fork
 Plug 'majutsushi/tagbar'              " Pane with tags
 Plug 'machakann/vim-highlightedyank'  " Highlight yanks
@@ -59,7 +59,6 @@ Plug 'yggdroot/indentline'            " Shows indentation levels
 Plug 'tpope/vim-eunuch'               " Unix helpers
 Plug 'moll/vim-bbye'                  " optional dependency for vim-symlink
 Plug 'aymericbeaumet/vim-symlink'     " Resolve symlinks before editing, plays nicely with undodir
-
 " Git GUI
 Plug 'airblade/vim-gitgutter'         " Git gutter
 Plug 'tpope/vim-fugitive'             " Git interface
@@ -67,20 +66,17 @@ Plug 'tpope/vim-rhubarb'                    " Enable GBrowse from fugitive for G
 Plug 'junegunn/gv.vim'                " TIG like navigation for vim
 Plug 'xuyuanp/nerdtree-git-plugin'    " Show status of files in NerdTree
 Plug 'tveskag/nvim-blame-line'        " Add git blame on line
-
 " Tmux GUI
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'christoomey/vim-tmux-navigator'
-
 " VIM Ui
-Plug 'wellle/context.vim'
-Plug 'psliwka/vim-smoothie'
+" Plug 'wellle/context.vim'
+" Plug 'psliwka/vim-smoothie'
 
 
 " Autocomplete
-Plug 'ervandew/supertab'
-
+" Plug 'ervandew/supertab'
 " Semantic language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -106,23 +102,23 @@ Plug 'vim-scripts/applescript.vim'
 Plug 'pprovost/vim-ps1'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mattn/emmet-vim'
-Plug 'norcalli/nvim-colorizer.lua'     " Faster colorzier (only neovim,
+" Plug 'norcalli/nvim-colorizer.lua'     " Faster colorzier (only neovim,
 " reconsider)
 Plug 'liuchengxu/vista.vim'
 Plug 'vim-python/python-syntax'
-Plug 'sentientmachine/pretty-vim-python'
+" Plug 'sentientmachine/pretty-vim-python'
 Plug 'isobit/vim-caddyfile'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'         " Base16 themes
-Plug 'gerw/vim-hilinktrace'            " Syntax Highlighting Tracer
-Plug 'fatih/molokai'                  " Monokai and friends
-Plug 'crusoexia/vim-monokai'
-Plug 'phanviet/vim-monokai-pro'
+" Plug 'gerw/vim-hilinktrace'            " Syntax Highlighting Tracer
+" Plug 'fatih/molokai'                  " Monokai and friends
+" Plug 'crusoexia/vim-monokai'
+" Plug 'phanviet/vim-monokai-pro'
 Plug 'patstockwell/vim-monokai-tasty'
-Plug 'erichdongubler/vim-sublime-monokai'
-Plug 'flazz/vim-colorschemes'          " Bunch of color schemes
+" Plug 'erichdongubler/vim-sublime-monokai'
+" Plug 'flazz/vim-colorschemes'          " Bunch of color schemes
 Plug 'sainnhe/sonokai'                 " Monokai Pro-like scheme
 Plug 'tanvirtin/monokai.nvim'
 Plug 'srcery-colors/srcery-vim'
@@ -138,6 +134,21 @@ Plug 'wakatime/vim-wakatime'           " Wakatime time tracking
 Plug 'ihsanturk/neuron.vim'            " For neuron Zettelkasten
 Plug 'liuchengxu/vim-which-key'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+if has('nvim-0.5')
+    Plug 'phaazon/hop.nvim'
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    " Plug 'nvim-telescope/telescope.nvim'
+
+    " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+    " Plug 'p00f/nvim-ts-rainbow'
+
+    " Plug 'kyazdani42/nvim-web-devicons' " for file icons
+    " Plug 'kyazdani42/nvim-tree.lua'
+
+    " Plug 'TimUntersberger/neogit'
+endif
 
 call plug#end()
 
@@ -171,10 +182,12 @@ endif
 
 " Colorscheme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" let g:molokai_original = 0
+let g:molokai_original = 0
 
-if exists("+termguicolors")
-    " set termguicolors
+if has('gui_running')
+    colorscheme base16-gruvbox-dark-hard
+elseif exists("+termguicolors")
+    set termguicolors
     " The commands below are needed for tmux + termguicolors
     " This is only necessary if you use "set termguicolors".
     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -185,15 +198,17 @@ if exists("+termguicolors")
     set t_Co=256
 
     colorscheme vim-monokai-tasty
+    " colorscheme sonokai
+    " let g:sonokai_style = 'shusia'
 
 elseif &t_Co < 256
-    colorscheme vim-monokai-tasty
+    colorscheme molokai
     set nocursorline " looks bad in this mode
 endif
 
-if &diff
-    colorscheme foobar
-endif
+" if &diff
+"     colorscheme foobar
+" endif
 
 
 let g:python_highlight_all = 1
@@ -202,7 +217,6 @@ syntax on           " enable syntax processing
 
 " Spaces & Tabs
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nowrap          " stops long lines wrapping down
 set tabstop=4       " number of visual spaces per TAB
 set softtabstop=4   " number of spaces in tab when editing
 set shiftwidth=4    " Insert 4 spaces on a tab
@@ -214,22 +228,18 @@ set number              " show line numbers
 set relativenumber      " show relative numbering
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
-set cursorcolumn        " highlight current_compiler
 filetype indent on      " load filetype-specific indent files
 filetype plugin on      " load filetype specific plugin files
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
 set laststatus=2        " Show the status line at the bottom
-" set mouse+=a            " A necessary evil, mouse support
-set mouse=            " A necessary evil, mouse support
+set mouse+=a            " A necessary evil, mouse support
+set mouse=              " Remove mouse actions
 set noerrorbells visualbell t_vb=    "Disable annoying error noises
 set splitbelow          " Open new vertical split bottom
 set splitright          " Open new horizontal splits right
 set linebreak           " Have lines wrap instead of continue off-screen
-set scrolloff=9         " Number of lines padding before the screen moves vertically
-set sidescrolloff=9     " Same as above but for horizontal
-set sidescroll=1        " Jumps of sidescroll
-set scroll=1            " Same as above but for vertical
+set scrolloff=12        " Keep cursor in approximately the middle of the screen
 set updatetime=100      " Some plugins require fast updatetime
 set ttyfast             " Improve redrawing
 
@@ -246,6 +256,7 @@ nmap Q <Nop>
 map <C-a> <Nop>
 map <C-x> <Nop>
 
+
 "Searching
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set incsearch           " search as characters are entered
@@ -256,14 +267,15 @@ set smartcase           " But make it case sensitive if an uppercase is entered
 vnoremap <C-h> :nohlsearch<cr>
 nnoremap <C-h> :nohlsearch<cr>
 " Ignore files for completion
-set wildignore+=*/.git/*,*/tmp/*,*.swp,*.pdf
+set wildignore+=*/.git/*,*/tmp/*,*.swp
 
 " Undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set undofile " Maintain undo history between sessions
 set undodir=~/.vim/undodir
 
-" Folding : Vishal doesn't know how to use this
+
+" Folding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
@@ -307,6 +319,12 @@ nnoremap <silent> g* g*zz
 nnoremap <C-o> <C-o>zz
 nnoremap <C-i> <C-i>zz
 
+" Very magic by default
+" nnoremap ? ?\v
+" nnoremap / /\v
+" cnoremap %s/ %sm/
+
+
 " Leader
 let mapleader=" "       " leader is space
 
@@ -322,6 +340,7 @@ else
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
+
 
 " Lose Bad Habits
 " http://vimcasts.org/blog/2013/02/habit-breaking-habit-making/
@@ -449,7 +468,6 @@ let g:ale_fixers = {
     \   'json': ['prettier'],
     \   'yaml': ['prettier'],
     \}
-let g:ale_cpp_cc_options = '-std=c++14 -Wall'
 nmap <silent> [a <Plug>(ale_previous_wrap)
 nmap <silent> ]a <Plug>(ale_next_wrap)
 
@@ -579,7 +597,6 @@ let g:limelight_conceal_ctermfg = 'gray'
 " * SuperTab
 " Tab goes down instead of up
 " let g:SuperTabDefaultCompletionType = "<c-n>"
-" let g:SuperTabContextDefaultCompletionType = "<c-n>"
 
 " GitGutter
 nmap ghs <Plug>(GitGutterStageHunk)
@@ -591,10 +608,29 @@ let g:tex_flavor = "latex"
 
 " vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
-" xmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-" nmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+
+
+" Secure Modelines
+let g:secure_modelines_allowed_items = [
+                \ "textwidth",   "tw",
+                \ "softtabstop", "sts",
+                \ "tabstop",     "ts",
+                \ "shiftwidth",  "sw",
+                \ "expandtab",   "et",   "noexpandtab", "noet",
+                \ "filetype",    "ft",
+                \ "foldmethod",  "fdm",
+                \ "readonly",    "ro",   "noreadonly", "noro",
+                \ "rightleft",   "rl",   "norightleft", "norl",
+                \ "colorcolumn"
+                \ ]
+
+" remote yanks OSC52
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '+' | execute 'OSCYankReg +' | endif
 
 " =============================================================================
 "   CUSTOM SHORTCUTS  (LEADER, FN, &c)
@@ -602,8 +638,163 @@ let g:tex_flavor = "latex"
 
 " Modifiers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <C-g> :Goyo<CR>
+map <C-p> :Files<CR>
+map <C-h> :History<CR>
+
+" Leader
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" <Nothing> -- vim-which-key
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+
+"  ;  --   FZF
+nmap <Leader>; :Buffers<CR>
+
+"  <Space>  --  <leader><leader> toggles between buffers
+nnoremap <Leader><Leader> <c-^>
+
+"  - |     --  Split with leader
+nnoremap <Leader>- :sp<CR>
+nnoremap <Leader>\| :vsp<CR>
+
+"  w wq q   --  Quick Save
+nmap <Leader>w :w<CR>
+nmap <Leader>q :q<CR>
+nmap <Leader>wq :wq<CR>
+nmap <Leader>Q :q!<CR>
+
+"  y d p P   --  Quick copy paste into system clipboard
+nmap <Leader>y "+y
+nmap <Leader>d "+d
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+
+"  e g H -- FZF
+nnoremap <Leader>g :Rg<CR>
+nnoremap <Leader>e :Files<CR>
+nnoremap <Leader>H :History<CR>
+
+" hjkl  s j k t / ? g/   -- EasyMotion
+map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>l <Plug>(easymotion-lineforward)
+
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+" vim-sneak behaviour through easymotio
+map <Leader>t <Plug>(easymotion-t2)
+nmap <Leader>t <Plug>(easymotion-overwin-t2)
+map <Leader>s <Plug>(easymotion-f2)
+nmap <Leader>s <Plug>(easymotion-overwin-f2)
+
+map <Leader>/ <Plug>(incsearch-easymotion-/)
+map <Leader>? <Plug>(incsearch-easymotion-?)
+map <Leader>g/ <Plug>(incsearch-easymotion-stay)
+
+
+"  u    -- Undo Tree toggle show
+" nnoremap <Leader>u :GundoToggle<CR>
+nnoremap <Leader>u :MundoToggle<CR>
+
+"  oa oc oe ofog om on op ot os    --  Miscellaneous toggles
+nnoremap <Leader>oa :ALEToggle<CR>
+nnoremap <Leader>ob :ToggleBlameLine<CR>
+nnoremap <Leader>oc :ColorToggle<CR>
+nnoremap <Leader>oe :NERDTreeToggle<CR>
+nnoremap <Leader>of :ALEfixToggle<CR>
+nnoremap <Leader>og :GitGutterToggle<CR>
+nnoremap <Leader>ol :ColorColumnToggle<CR>
+nnoremap <Leader>om :SignatureToggle<CR>
+nnoremap <Leader>on :LineNumberToggle<CR>
+nnoremap <Leader>op :RainbowToggle<CR>
+nnoremap <Leader>ot :Vista!!<CR>
+nnoremap <Leader>os :setlocal spell! spelllang=en_us<CR>
+" nnoremap <Leader>nf :NERDTreeFind<CR>
+
+
+"  z   -- Toggle Pane Zoom
+nnoremap <silent> <Leader>+ :call ToggleZoom(v:true)<CR>
+
+" `  `v  `z  rv  -- edit vimrc/zshrc and load vimrc bindings
+nnoremap <Leader>` :Startify<CR>
+nnoremap <Leader>`z :vsp ~/.zshrc<CR>
+nnoremap <Leader>`v :vsp ~/.vimrc<CR>
+nnoremap <Leader>rv :source ~/.vimrc<CR>
+
+" S    --  save session,  After saving a Vim session, you can reopen it with vim -S.
+" nnoremap <Leader>S :mksession<CR>
+
 " aw    -- ArgWrap
 nnoremap <Leader>aw :ArgWrap<CR>
+
+
+" numbers
+nnoremap <Leader>1 1gt<CR>
+nnoremap <Leader>2 2gt<CR>
+nnoremap <Leader>3 3gt<CR>
+nnoremap <Leader>4 4gt<CR>
+nnoremap <Leader>5 5gt<CR>
+nnoremap <Leader>6 6gt<CR>
+nnoremap <Leader>7 7gt<CR>
+nnoremap <Leader>8 8gt<CR>
+nnoremap <Leader>9 9gt<CR>
+nnoremap <Leader>n :tabnew<CR>
+nnoremap <Leader>x :tabclose<CR>
+
+
+" rn F a ac af U -- Conquer of Completion
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if exists('g:coc_custom_config')
+    " Symbol renaming.
+    nmap <leader>rn <Plug>(coc-rename)
+
+    nmap <Leader>! :<C-u>CocList diagnostics<CR>
+
+    " TODO figure out
+    " Formatting selected code.
+    " xmap <leader>F  <Plug>(coc-format-selected)
+    " nmap <leader>F  <Plug>(coc-format-selected)
+    " Applying codeAction to the selected region.
+    " Example: `<leader>aap` for current paragraph
+    " xmap <leader>a  <Plug>(coc-codeaction-selected)
+    " nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+    " Remap keys for applying codeAction to the current buffer.
+    " nmap <leader>ac  <Plug>(coc-codeaction)
+    " Apply AutoFix to problem on the current line.
+    " nmap <leader>af  <Plug>(coc-fix-current)
+
+    """"""""""""" Coc-Git
+    " Undo git chunk (closest to linewise undo)
+    nmap <Leader>U :CocCommand git.chunkUndo<CR>
+    " Toggle GitGutter
+    nmap <Leader>og :CocCommand git.toggleGutters<CR>
+    " " navigate chunks of current buffer
+    nmap [c <Plug>(coc-git-prevchunk)
+    nmap ]c <Plug>(coc-git-nextchunk)
+    " show chunk diff at current position
+    nmap gs <Plug>(coc-git-chunkinfo)
+    " show commit contains current position
+    nmap gc <Plug>(coc-git-commit)
+    " " create text object for git chunks
+    omap ig <Plug>(coc-git-chunk-inner)
+    xmap ig <Plug>(coc-git-chunk-inner)
+    omap ag <Plug>(coc-git-chunk-outer)
+    xmap ag <Plug>(coc-git-chunk-outer)
+
+    " Play nicely with EasyMotion
+    autocmd User EasyMotionPromptBegin silent! CocDisable
+    autocmd User EasyMotionPromptEnd silent! CocEnable
+endif
+
+" nnoremap <Leader>s :call <SID>StripTrailingWhitespaces()<CR>
 
 " FN
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -626,13 +817,19 @@ if has("autocmd")
   au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+
 " Help filetype detection
 autocmd BufRead *.plot set filetype=gnuplot
 autocmd BufRead *.md set filetype=markdown
 autocmd BufRead *.tex set filetype=tex
 autocmd BufRead *.rss set filetype=xml
 
-let g:pep8_map='<leader>8'
-let g:vista_default_executive = 'coc'
+" =============================================================================
+"   LOCAL CONFIG
+" =============================================================================
 
-" let g:lightline = { 'colorscheme': 'molokai' }
+" local customizations in ~/.vimrc_local
+let $LOCALFILE=expand("~/.vimrc_local")
+if filereadable($LOCALFILE)
+    source $LOCALFILE
+endif
