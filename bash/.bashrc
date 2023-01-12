@@ -67,6 +67,6 @@ shopt -s histappend  # appends to history instead of rewriting
 set -o vi
 
 ### SYS INFO PRINT
-# neofetch
+neofetch
 
 # EOF
