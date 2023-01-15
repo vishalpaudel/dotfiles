@@ -32,6 +32,8 @@ backup_if_exists ~/.bash_profile
 brew services restart yabai
 
 # Neovim install/linking
+mkdir -p "$HOME/.neovim/node"
+
 ln -s "/opt/homebrew/Cellar/neovim/0.8.1" "$HOME/.neovim"
 ln -s "/opt/homebrew/Cellar/node/19.4.0" "$HOME/.neovim/node"
 
