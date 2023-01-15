@@ -1,0 +1,43 @@
+[2023-01-16 01:35:33.280] [info] [console_user_server] version 14.11.0
+[2023-01-16 01:35:33.393] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-16 01:35:33.393] [info] [console_user_server] grabber_client is started.
+[2023-01-16 01:35:33.393] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:34.396] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:35.427] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:36.502] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:37.552] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:38.561] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:39.604] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:40.651] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:41.714] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:42.785] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:43.839] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:44.911] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:45.956] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:47.022] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:48.094] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:49.100] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:50.120] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:51.144] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:52.199] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:53.271] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:54.344] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:55.405] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:56.478] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:57.490] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:58.554] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:35:59.627] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:36:00.663] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:36:01.737] [error] [console_user_server] grabber_client connect_failed: No such file or directory
+[2023-01-16 01:36:02.809] [info] [console_user_server] grabber_client is connected.
+[2023-01-16 01:36:02.956] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-16 01:36:02.956] [info] [console_user_server] core_configuration is updated.
+[2023-01-16 01:36:33.052] [info] [console_user_server] Check for updates...
+[2023-01-16 01:55:43.499] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-16 01:55:43.502] [info] [console_user_server] core_configuration is updated.
+[2023-01-16 01:55:48.220] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-16 01:55:48.223] [info] [console_user_server] core_configuration is updated.
+[2023-01-16 01:56:01.106] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-16 01:56:01.113] [info] [console_user_server] core_configuration is updated.
+[2023-01-16 01:56:08.913] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-16 01:56:08.919] [info] [console_user_server] core_configuration is updated.
