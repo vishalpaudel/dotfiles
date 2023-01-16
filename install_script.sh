@@ -34,8 +34,9 @@ brew services restart yabai
 # Neovim install/linking
 mkdir -p "$HOME/.neovim/node"
 
-ln -s "/opt/homebrew/Cellar/neovim/0.8.1" "$HOME/.neovim"
-ln -s "/opt/homebrew/Cellar/node/19.4.0" "$HOME/.neovim/node"
+# Have to find the directories where neovim and node are
+# ln -s "/opt/homebrew/Cellar/neovim/0.8.1" "$HOME/.neovim"
+# ln -s "/opt/homebrew/Cellar/node/19.4.0" "$HOME/.neovim/node"
 
 # For now manually GNU Stow(ing) all the stuff
 # stow -v --target=$HOME $program
