@@ -1,0 +1,8 @@
+[START][2023-01-16 16:07:32] LSP logging initiated
+[WARN][2023-01-16 16:07:32] .../lua/vim/lsp.lua:1065	"server_request: no handler found for"	"workspace/diagnostic/refresh"
+[WARN][2023-01-16 16:07:32] .../lua/vim/lsp.lua:1065	"server_request: no handler found for"	"workspace/diagnostic/refresh"
+[ERROR][2023-01-16 16:08:00] .../vim/lsp/rpc.lua:733	"rpc"	"lua-language-server"	"stderr"	"NMD, WSM `endLine > #rows` ?\nstack traceback:\n\tscript/text-merger.lua:72: in upvalue 'mergeRows'\n\tscript/text-merger.lua:106: in function 'text-merger'\n\tscript/provider/provider.lua:305: in function <script/provider/provider.lua:290>\n\t[C]: in function 'xpcall'\n\tscript/proto/proto.lua:184: in function <script/proto/proto.lua:159>\n"
+[START][2023-01-16 16:14:55] LSP logging initiated
+[WARN][2023-01-16 16:14:55] .../lua/vim/lsp.lua:1065	"server_request: no handler found for"	"workspace/diagnostic/refresh"
+[WARN][2023-01-16 16:14:55] .../lua/vim/lsp.lua:1065	"server_request: no handler found for"	"workspace/diagnostic/refresh"
+[WARN][2023-01-16 16:29:20] .../lua/vim/lsp.lua:1602	"buf_attach_client called on unloaded buffer (id: 4): "

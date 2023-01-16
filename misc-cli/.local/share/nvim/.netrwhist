@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel'
+let g:netrw_dirhist_1='/Users/vishalpaudel/dotfiles/vim/.config/nvim'
+let g:netrw_dirhist_0='/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua'
+let g:netrw_dirhist_9='/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel'
+let g:netrw_dirhist_8='/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua'
+let g:netrw_dirhist_7='/Users/vishalpaudel/dotfiles/vim/.config/nvim'
+let g:netrw_dirhist_6='/Users/vishalpaudel/dotfiles/vim/.config/nvim/after/plugin'
+let g:netrw_dirhist_5='/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel'
+let g:netrw_dirhist_4='/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua'
+let g:netrw_dirhist_3='/Users/vishalpaudel/dotfiles/vim/.config/nvim'

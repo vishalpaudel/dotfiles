@@ -1,0 +1,205 @@
+[16:14:55.361][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:66]: Lua Lsp startup, root: 	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server
+[16:14:55.362][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:67]: ROOT:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server
+[16:14:55.362][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:68]: LOGPATH:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/log
+[16:14:55.362][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:69]: METAPATH:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/meta
+[16:14:55.363][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:70]: VERSION:	3.6.4-dev
+[16:14:55.387][info] [#0:script/service/service.lua:141]: 
+========= Medical Examination Report =========
+    --------------- Memory ---------------
+        Total: 1.563 MB
+        # 00 : 1.563 MB
+        # 01 : 0.000 MB
+        # 02 : 0.000 MB
+        # 03 : 0.000 MB
+        # 04 : 0.000 MB
+    --------------- Coroutine ---------------
+        Total:     0
+        Running:   0
+        Suspended: 0
+        Normal:    0
+        Dead:      0
+    --------------- Cache ---------------
+        Total: 1
+        Dead:  0
+    ---------------  RPC  ---------------
+        Holdon:   0
+        Waiting:  0
+==============================================
+[16:14:55.391][info] [#0:script/language.lua:137]: VSC language: nil
+[16:14:55.391][info] [#0:script/language.lua:138]: LS  language: en-us
+[16:14:55.391][info] [#0:script/workspace/workspace.lua:38]: Workspace init root: 	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.391][info] [#0:script/workspace/workspace.lua:42]: Log path: 	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/log/file_Users_vishalpaudel_dotfiles_vim_.config_nvim_lua_.log
+[16:14:55.391][info] [#0:script/workspace/workspace.lua:51]: Workspace create: 	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.392][info] [#0:script/provider/provider.lua:41]: Load config from client	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.393][info] [#0:script/provider/provider.lua:42]: {
+  Lua = {
+    diagnostics = {
+      globals = { "vim" }
+    },
+    telemetry = {
+      enable = false
+    }
+  }
+}
+[16:14:55.393][info] [#0:script/provider/provider.lua:41]: Load config from client	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.393][info] [#0:script/provider/provider.lua:42]: {
+  Lua = {
+    diagnostics = {
+      globals = { "vim" }
+    },
+    telemetry = {
+      enable = false
+    }
+  }
+}
+[16:14:55.393][info] [#0:script/provider/provider.lua:41]: Load config from client	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.393][info] [#0:script/provider/provider.lua:42]: {
+  Lua = {
+    diagnostics = {
+      globals = { "vim" }
+    },
+    telemetry = {
+      enable = false
+    }
+  }
+}
+[16:14:55.393][info] [#0:script/provider/provider.lua:56]: Load config from client	fallback
+[16:14:55.393][info] [#0:script/provider/provider.lua:57]: {
+  Lua = {
+    diagnostics = {
+      globals = { "vim" }
+    },
+    telemetry = {
+      enable = false
+    }
+  }
+}
+[16:14:55.393][info] [#0:script/library.lua:209]: Init builtin library at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.401][info] [#0:script/plugin.lua:86]: plugin path:	/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua
+[16:14:55.401][warn] [#0:script/plugin.lua:101]: plugin not found:	/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua
+[16:14:55.401][info] [#0:script/library.lua:209]: Init builtin library at:	nil
+[16:14:55.407][info] [#0:script/provider/provider.lua:56]: Load config from client	fallback
+[16:14:55.407][info] [#0:script/provider/provider.lua:57]: {
+  Lua = {
+    diagnostics = {
+      globals = { "vim" }
+    },
+    telemetry = {
+      enable = false
+    }
+  }
+}
+[16:14:55.407][info] [#0:script/provider/provider.lua:56]: Load config from client	fallback
+[16:14:55.407][info] [#0:script/provider/provider.lua:57]: {
+  Lua = {
+    diagnostics = {
+      globals = { "vim" }
+    },
+    telemetry = {
+      enable = false
+    }
+  }
+}
+[16:14:55.512][info] [#0:script/workspace/workspace.lua:304]: Preload start:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.512][info] [#0:script/workspace/workspace.lua:310]: Scan files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.513][info] [#0:script/workspace/workspace.lua:304]: Preload start:	<fallback>
+[16:14:55.514][info] [#0:script/workspace/workspace.lua:327]: Scan library at:	file:///Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/meta/Lua%205.4%20en-us%20utf8
+[16:14:55.515][info] [#0:script/workspace/workspace.lua:327]: Scan library at:	file:///Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/meta/Lua%205.4%20en-us%20utf8
+[16:14:55.621][info] [#0:script/workspace/workspace.lua:347]: Found 11 files at:	<fallback>
+[16:14:55.621][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	<fallback>
+[16:14:55.621][info] [#0:script/workspace/workspace.lua:347]: Found 14 files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.621][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.877][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.055] sec: <fallback>
+[16:14:55.877][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: <fallback>
+[16:14:55.877][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	<fallback>
+[16:14:55.877][info] [#0:script/workspace/workspace.lua:349]: Preload finish at:	<fallback>
+[16:14:55.888][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.064] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.888][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.888][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.888][info] [#0:script/workspace/workspace.lua:349]: Preload finish at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[16:14:55.897][warn] [#0:script/proto/proto.lua:122]: Response of [workspace/diagnostic/refresh] error [-32601]: MethodNotFound
+[16:14:56.002][info] [#0:script/provider/diagnostic.lua:552]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/], files count:[14]
+[16:14:56.003][warn] [#0:script/proto/proto.lua:122]: Response of [workspace/diagnostic/refresh] error [-32601]: MethodNotFound
+[16:14:56.036][info] [#0:script/provider/diagnostic.lua:569]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/] finished, takes [0.033] sec.
+[16:16:45.760][info] [#0:script/workspace/workspace.lua:264]: Scan files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/init.lua
+[16:16:45.760][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/init.lua
+[16:16:45.760][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/init.lua
+[16:16:45.760][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/init.lua
+[16:16:45.760][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/init.lua
+[16:16:48.245][info] [#0:script/provider/diagnostic.lua:552]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/], files count:[14]
+[16:16:48.254][info] [#0:script/provider/diagnostic.lua:569]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/] finished, takes [0.010] sec.
+[16:17:34.392][info] [#0:script/provider/diagnostic.lua:171]: clearDiagnostics	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/init.lua
+[16:17:56.062][info] [#0:script/workspace/workspace.lua:264]: Scan files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/init.lua
+[16:17:56.063][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/init.lua
+[16:17:56.063][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/init.lua
+[16:17:56.063][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/init.lua
+[16:17:56.063][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/init.lua
+[16:17:58.452][info] [#0:script/provider/diagnostic.lua:552]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/], files count:[14]
+[16:17:58.463][info] [#0:script/provider/diagnostic.lua:569]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/] finished, takes [0.010] sec.
+[16:18:24.315][info] [#0:script/provider/diagnostic.lua:552]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/], files count:[15]
+[16:18:24.328][info] [#0:script/provider/diagnostic.lua:569]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/] finished, takes [0.014] sec.
+[16:18:25.162][info] [#0:script/workspace/workspace.lua:264]: Scan files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:18:25.162][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:18:25.162][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:18:25.162][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:18:25.162][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:18:27.246][info] [#0:script/provider/diagnostic.lua:552]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/], files count:[15]
+[16:18:27.257][info] [#0:script/provider/diagnostic.lua:569]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/] finished, takes [0.012] sec.
+[16:18:33.400][info] [#0:script/provider/diagnostic.lua:171]: clearDiagnostics	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:12.719][info] [#0:script/workspace/workspace.lua:264]: Scan files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:12.719][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:12.719][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:12.719][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:12.719][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:15.038][info] [#0:script/provider/diagnostic.lua:552]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/], files count:[15]
+[16:21:15.055][info] [#0:script/provider/diagnostic.lua:569]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/] finished, takes [0.017] sec.
+[16:21:22.860][info] [#0:script/workspace/workspace.lua:264]: Scan files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:22.860][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:22.861][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:22.861][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:22.861][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:24.975][info] [#0:script/provider/diagnostic.lua:552]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/], files count:[15]
+[16:21:24.994][info] [#0:script/provider/diagnostic.lua:569]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/] finished, takes [0.019] sec.
+[16:21:30.808][info] [#0:script/workspace/workspace.lua:264]: Scan files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:30.808][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:30.808][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:30.808][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:30.808][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/set.lua
+[16:21:33.014][info] [#0:script/provider/diagnostic.lua:552]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/], files count:[15]
+[16:21:33.034][info] [#0:script/provider/diagnostic.lua:569]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/] finished, takes [0.020] sec.
+[16:24:55.560][info] [#0:script/service/service.lua:141]: 
+========= Medical Examination Report =========
+    --------------- Memory ---------------
+        Total: 6.550 MB
+        # 00 : 6.127 MB
+        # 01 : 0.050 MB
+        # 02 : 0.196 MB
+        # 03 : 0.050 MB
+        # 04 : 0.127 MB
+    --------------- Coroutine ---------------
+        Total:     32
+        Running:   0
+        Suspended: 0
+        Normal:    0
+        Dead:      32
+    --------------- Cache ---------------
+        Total: 3
+        Dead:  2
+    ---------------  RPC  ---------------
+        Holdon:   0
+        Waiting:  0
+==============================================
+[16:29:18.671][info] [#0:script/workspace/workspace.lua:264]: Scan files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/remap.lua
+[16:29:18.673][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/remap.lua
+[16:29:18.673][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/remap.lua
+[16:29:18.673][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/remap.lua
+[16:29:18.673][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/remap.lua
+[16:29:20.504][info] [#0:script/provider/diagnostic.lua:552]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/], files count:[15]
+[16:29:20.528][info] [#0:script/provider/diagnostic.lua:569]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/] finished, takes [0.024] sec.
+[16:29:20.736][info] [#0:script/workspace/workspace.lua:264]: Scan files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/remap.lua
+[16:29:20.736][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/remap.lua
+[16:29:20.736][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/remap.lua
+[16:29:20.736][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/remap.lua
+[16:29:20.736][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/vishalpaudel/remap.lua
+[16:29:20.938][info] [#0:script/provider/provider.lua:170]: Server shutdown.
+[16:29:21.043][info] [#0:script/provider/provider.lua:163]: Server exited.

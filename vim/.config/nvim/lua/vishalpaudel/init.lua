@@ -1,3 +1,4 @@
-require("remap.lua")
+require("vishalpaudel.remap")
+require("vishalpaudel.set")
 
-print("Hello from Vishal Paudel")
+

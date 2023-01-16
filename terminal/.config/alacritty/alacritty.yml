@@ -47,7 +47,7 @@ window:
   #     - buttonless: Title bar, transparent background and title bar buttons
   #     - transparent: Title bar, transparent background, but no title bar buttons
   decorations: none
-  opacity: 1.0
+  opacity: 0.9
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
