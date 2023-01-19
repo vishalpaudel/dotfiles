@@ -64,7 +64,7 @@ shopt -s histappend  # appends to history instead of rewriting
 
 
 # BASIC SETTINGS
-# set -o vi   # turn off if using blesh
+set -o vi
 
 ### SYS INFO PRINT
 neofetch

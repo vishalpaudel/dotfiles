@@ -8,7 +8,6 @@
 shopt -u no_empty_cmd_completion
 ((_ble_bash>=50000)) && shopt -s progcomp_alias
 
-set -o vi
 bleopt emoji_width=
 bleopt indent_offset=2
 bleopt decode_isolated_esc=esc
