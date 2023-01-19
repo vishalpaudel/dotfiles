@@ -229,7 +229,7 @@ function ble/base/xtrace/.fdnext {
   local __init=${_ble_util_openat_nextfd:=${bleopt_openat_base:-30}}
   for (($1=__init;$1<__init+1024;$1++)); do ble/base/xtrace/.fdcheck "${!1}" || break; done
   (($1<__init+1024)) || { (($1=__init,_ble_util_openat_nextfd++)); builtin eval "exec ${!1}>&-"; } || ((1))
-}
+} 
 function ble/base/xtrace/.log {
   local bash=${_ble_bash:-$((BASH_VERSINFO[0]*10000+BASH_VERSINFO[1]*100+BASH_VERSINFO[2]))}
   local open=---- close=----
@@ -1159,12 +1159,12 @@ function ble-reload {
   done
   source "$_ble_base/ble.sh" "${options[@]}"
 }
-_ble_base_repository='/Users/pogovishal/ble.sh'
+_ble_base_repository='/Users/vishalpaudel/ble.sh'
 _ble_base_branch=master
 _ble_base_repository_url=https://github.com/akinomyoga/ble.sh
-_ble_base_build_git_version="git version 2.37.1 (Apple Git-137.1)"
+_ble_base_build_git_version="git version 2.39.0"
 _ble_base_build_make_version="GNU Make 3.81"
-_ble_base_build_gawk_version="GNU Awk 5.2.1, API 3.2, (GNU MPFR 4.1.0-p13, GNU MP 6.2.1)"
+_ble_base_build_gawk_version="GNU Awk 5.2.1, API 3.2, (GNU MPFR 4.2.0, GNU MP 6.2.1)"
 function ble-update/.check-install-directory-ownership {
   if [[ ! -O $_ble_base ]]; then
     ble/util/print 'ble-update: install directory is owned by another user:' >&2
@@ -1429,19 +1429,19 @@ function blehook/.compatibility-ble-0.3/check {
 #
 # Please update your blerc settings for ble-0.4+.
 # In ble-0.4+, use the following form:
-#
+# 
 #   blehook/eval-after-load keymap SHELL-COMMAND
 #   blehook/eval-after-load keymap_vi SHELL-COMMAND
 #   blehook/eval-after-load keymap_emacs SHELL-COMMAND
 #   blehook/eval-after-load complete SHELL-COMMAND
-#
+# 
 # instead of the following older form:
-#
+# 
 #   ble/array#push _ble_keymap_default_load_hook SHELL-COMMAND
 #   ble/array#push _ble_keymap_vi_load_hook SHELL-COMMAND
 #   ble/array#push _ble_keymap_emacs_load_hook SHELL-COMMAND
 #   ble/array#push _ble_complete_load_hook SHELL-COMMAND
-#
+# 
 # Note: "blehook/eval-after-load" should be called
 #   after you defined SHELL-COMMAND.
 #

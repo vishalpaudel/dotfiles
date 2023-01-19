@@ -1,8 +1,0 @@
-bind -m vi-insert '"\eOA": ""'
-bind -m vi-insert '"\eOB": ""'
-bind -m vi-insert '"\eOC": ""'
-bind -m vi-insert '"\eOD": ""'
-bind -m vi-insert '"\e[A": ""'
-bind -m vi-insert '"\e[B": ""'
-bind -m vi-insert '"\e[C": ""'
-bind -m vi-insert '"\e[D": ""'

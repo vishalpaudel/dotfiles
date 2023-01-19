@@ -1,88 +1,0 @@
---accessed [1m[[0;36m-u[0;1m][m use the accessed timestamp field
---across [1m[[0;36m-x[0;1m][m sort the grid across, rather than downwards
---all [1m[[0;36m-a[0;1m][m show hidden and 'dot' files
---binary [1m[[0;36m-b[0;1m][m list file sizes with binary prefixes
---blocks [1m[[0;36m-S[0;1m][m show number of file system blocks
---bytes [1m[[0;36m-B[0;1m][m list file sizes in bytes, without any prefixes
---changed use the changed timestamp field
---classify [1m[[0;36m-F[0;1m][m display type indicator by file names
---colo[u]r=WHENwhen to use terminal colours (always, auto, never)
---created [1m[[0;36m-U[0;1m][m use the created timestamp field
---extended list each file's extended attributes and sizes
---git list each file's Git status, if tracked or ignored
---git-ignore ignore files mentioned in '.gitignore'
---grid [1m[[0;36m-G[0;1m][m display entries as a grid (default)
---group [1m[[0;36m-g[0;1m][m list each file's group
---group-directories-first  list directories before other files
---header [1m[[0;36m-h[0;1m][m add a header row to each column
---help [1m[[0;36m-?[0;1m][m show list of command-line options
---icons display icons
---ignore-glob GLOBS [1m[[0;36m-I[0;1m][m glob patterns (pipe-separated) of files to ignore
---inode [1m[[0;36m-i[0;1m][m list each file's inode number
---level DEPTH [1m[[0;36m-L[0;1m][m limit the depth of recursion
---links [1m[[0;36m-H[0;1m][m list each file's number of hard links
---list-dirs [1m[[0;36m-d[0;1m][m list directories as files; don't list their contents
---long [1m[[0;36m-l[0;1m][m display extended file metadata as a table
---modified [1m[[0;36m-m[0;1m][m use the modified timestamp field
---no-filesize suppress the filesize field
---no-icons don't display icons (always overrides --icons)
---no-permissions suppress the permissions field
---no-time suppress the time field
---no-user suppress the user field
---numeric [1m[[0;36m-n[0;1m][m list numeric user and group IDs
---octal-permissions  list each file's permission in octal format
---oneline [1m[[0;36m-1[0;1m][m display one entry per line
---only-dirs [1m[[0;36m-D[0;1m][m list only directories
---recurse [1m[[0;36m-R[0;1m][m recurse into directories
---reverse [1m[[0;36m-r[0;1m][m reverse the sort order
---sort SORT_FIELD [1m[[0;36m-s[0;1m][m which field to sort by
---time FIELD [1m[[0;36m-t[0;1m][m which timestamp field to list (modified, accessed, created)
---time-style how to format timestamps (default, iso, long-iso, full-iso)
---tree [1m[[0;36m-T[0;1m][m recurse into directories as a tree
---version [1m[[0;36m-v[0;1m][m show version of exa
--1 display one entry per line
--? show list of command-line options
--B list file sizes in bytes, without any prefixes
--D list only directories
--F display type indicator by file names
--G display entries as a grid (default)
--H list each file's number of hard links
--I GLOBS glob patterns (pipe-separated) of files to ignore
--L DEPTH limit the depth of recursion
--R recurse into directories
--S show number of file system blocks
--T recurse into directories as a tree
--U use the created timestamp field
--a show hidden and 'dot' files
--b list file sizes with binary prefixes
--d list directories as files; don't list their contents
--g list each file's group
--h add a header row to each column
--i list each file's inode number
--l display extended file metadata as a table
--m use the modified timestamp field
--n list numeric user and group IDs
--r reverse the sort order
--s SORT_FIELD which field to sort by
--t FIELD which timestamp field to list (modified, accessed, created)
--u use the accessed timestamp field
--v show version of exa
--x sort the grid across, rather than downwards
-- (Comma) When the --ll option is set, print file sizes grouped and separated by thousands using the non-monetary separator returned by localeconv(3), typically a comma or period. If no locale is set, or the locale does not have a non-monetary separator, this option has no effect. This option is not defined in IEEE Std 1003.1-2001 (“POSIX.1”).
--% Distinguish dataless files and directories with a '%' character in long
---color=when=Output colored escape sequences based on _w_h_e_n, which may be set to either aallwwaayyss, aauuttoo, or nneevveerr.
--@ Display extended attribute keys and sizes in long (--ll) output.
--A Include directory entries whose names begin with a dot (‘_.’) except for _. and _._.. Automatically set for the super-user unless --II is specified.
--C Force multi-column output.
--O Include the file flags in a long (--ll) output. This option is incompatible with IEEE Std 1003.1-2008 (“POSIX.1”). See chflags(1) for a list of file flags and their meanings.
--P If argument is a symbolic link, list the link itself rather than the object the link references. This option cancels the --HH and --LL options.
--W Display whiteouts when scanning directories. This option is not defined in IEEE Std 1003.1-2008 (“POSIX.1”).
--c Use time when file status was last changed for sorting or printing.
--e Print the Access Control List (ACL) associated with the file, if present, in long (--ll) output.
--f Output is not sorted. This option turns on --aa. It also negates the effect of the --rr, --SS and --tt options. As allowed by IEEE Std 1003.1-2008 (“POSIX.1”), this option has no effect on the --dd, --ll, --RR and --ss options.
--k This has the same effect as setting environment variable BLOCKSIZE to 1024, except that it also nullifies any --hh options to its left.
--o List in long format, but omit the group id.
--p Write a slash (‘/’) after each filename if that file is a directory.
--q Force printing of non-graphic characters in file names as the character ‘?’.
--w Force raw printing of non-printable characters. This is the default when output is not to a terminal. This option is not defined in IEEE Std 1003.1-2001 (“POSIX.1”).
--y When the --tt option is set, sort the alphabetical output in the same order as the time output. This has the same effect as setting LS_SAMESORT. See the description of the --tt option for more details. This option is not defined in IEEE Std 1003.1-2001 (“POSIX.1”).
