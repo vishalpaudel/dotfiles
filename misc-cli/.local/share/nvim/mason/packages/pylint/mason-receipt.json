@@ -1,0 +1,1 @@
+{"links":{"bin":{"pylint":"venv\/bin\/pylint"}},"secondary_sources":[],"metrics":{"completion_time":1674147510800,"start_time":1674147501374},"primary_source":{"package":"pylint","type":"pip3"},"schema_version":"1.0","name":"pylint"}

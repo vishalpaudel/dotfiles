@@ -17,4 +17,3 @@
 [ -f ~/.bashrc ] && source ~/.bashrc
 
 # EOF
-export PATH=/opt/homebrew/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin

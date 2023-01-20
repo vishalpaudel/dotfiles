@@ -6,3 +6,6 @@
 [WARN][2023-01-16 16:14:55] .../lua/vim/lsp.lua:1065	"server_request: no handler found for"	"workspace/diagnostic/refresh"
 [WARN][2023-01-16 16:14:55] .../lua/vim/lsp.lua:1065	"server_request: no handler found for"	"workspace/diagnostic/refresh"
 [WARN][2023-01-16 16:29:20] .../lua/vim/lsp.lua:1602	"buf_attach_client called on unloaded buffer (id: 4): "
+[START][2023-01-19 22:26:35] LSP logging initiated
+[WARN][2023-01-19 22:26:35] .../lua/vim/lsp.lua:1065	"server_request: no handler found for"	"workspace/diagnostic/refresh"
+[WARN][2023-01-19 22:26:35] .../lua/vim/lsp.lua:1065	"server_request: no handler found for"	"workspace/diagnostic/refresh"
