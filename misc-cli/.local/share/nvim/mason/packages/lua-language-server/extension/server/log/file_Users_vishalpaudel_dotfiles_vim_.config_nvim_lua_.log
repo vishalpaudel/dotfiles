@@ -1,9 +1,9 @@
-[00:58:17.341][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:66]: Lua Lsp startup, root: 	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server
-[00:58:17.341][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:67]: ROOT:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server
-[00:58:17.341][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:68]: LOGPATH:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/log
-[00:58:17.341][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:69]: METAPATH:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/meta
-[00:58:17.341][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:70]: VERSION:	3.6.4-dev
-[00:58:17.362][info] [#0:script/service/service.lua:141]: 
+[01:09:58.238][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:66]: Lua Lsp startup, root: 	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server
+[01:09:58.238][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:67]: ROOT:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server
+[01:09:58.238][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:68]: LOGPATH:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/log
+[01:09:58.238][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:69]: METAPATH:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/meta
+[01:09:58.238][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:70]: VERSION:	3.6.4-dev
+[01:09:58.261][info] [#0:script/service/service.lua:141]: 
 ========= Medical Examination Report =========
     --------------- Memory ---------------
         Total: 1.563 MB
@@ -25,13 +25,13 @@
         Holdon:   0
         Waiting:  0
 ==============================================
-[00:58:17.365][info] [#0:script/language.lua:137]: VSC language: nil
-[00:58:17.366][info] [#0:script/language.lua:138]: LS  language: en-us
-[00:58:17.366][info] [#0:script/workspace/workspace.lua:38]: Workspace init root: 	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.366][info] [#0:script/workspace/workspace.lua:42]: Log path: 	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/log/file_Users_vishalpaudel_dotfiles_vim_.config_nvim_lua_.log
-[00:58:17.366][info] [#0:script/workspace/workspace.lua:51]: Workspace create: 	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.367][info] [#0:script/provider/provider.lua:41]: Load config from client	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.367][info] [#0:script/provider/provider.lua:42]: {
+[01:09:58.265][info] [#0:script/language.lua:137]: VSC language: nil
+[01:09:58.265][info] [#0:script/language.lua:138]: LS  language: en-us
+[01:09:58.265][info] [#0:script/workspace/workspace.lua:38]: Workspace init root: 	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.265][info] [#0:script/workspace/workspace.lua:42]: Log path: 	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/log/file_Users_vishalpaudel_dotfiles_vim_.config_nvim_lua_.log
+[01:09:58.265][info] [#0:script/workspace/workspace.lua:51]: Workspace create: 	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.267][info] [#0:script/provider/provider.lua:41]: Load config from client	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.267][info] [#0:script/provider/provider.lua:42]: {
   Lua = {
     diagnostics = {
       globals = { "vim" }
@@ -41,8 +41,8 @@
     }
   }
 }
-[00:58:17.367][info] [#0:script/provider/provider.lua:41]: Load config from client	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.367][info] [#0:script/provider/provider.lua:42]: {
+[01:09:58.267][info] [#0:script/provider/provider.lua:41]: Load config from client	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.267][info] [#0:script/provider/provider.lua:42]: {
   Lua = {
     diagnostics = {
       globals = { "vim" }
@@ -52,8 +52,8 @@
     }
   }
 }
-[00:58:17.367][info] [#0:script/provider/provider.lua:41]: Load config from client	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.367][info] [#0:script/provider/provider.lua:42]: {
+[01:09:58.267][info] [#0:script/provider/provider.lua:41]: Load config from client	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.267][info] [#0:script/provider/provider.lua:42]: {
   Lua = {
     diagnostics = {
       globals = { "vim" }
@@ -63,8 +63,8 @@
     }
   }
 }
-[00:58:17.367][info] [#0:script/provider/provider.lua:56]: Load config from client	fallback
-[00:58:17.367][info] [#0:script/provider/provider.lua:57]: {
+[01:09:58.267][info] [#0:script/provider/provider.lua:56]: Load config from client	fallback
+[01:09:58.267][info] [#0:script/provider/provider.lua:57]: {
   Lua = {
     diagnostics = {
       globals = { "vim" }
@@ -74,12 +74,12 @@
     }
   }
 }
-[00:58:17.367][info] [#0:script/library.lua:209]: Init builtin library at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.374][info] [#0:script/plugin.lua:86]: plugin path:	/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua
-[00:58:17.374][warn] [#0:script/plugin.lua:101]: plugin not found:	/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua
-[00:58:17.374][info] [#0:script/library.lua:209]: Init builtin library at:	nil
-[00:58:17.380][info] [#0:script/provider/provider.lua:56]: Load config from client	fallback
-[00:58:17.380][info] [#0:script/provider/provider.lua:57]: {
+[01:09:58.267][info] [#0:script/library.lua:209]: Init builtin library at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.274][info] [#0:script/plugin.lua:86]: plugin path:	/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua
+[01:09:58.275][warn] [#0:script/plugin.lua:101]: plugin not found:	/Users/vishalpaudel/dotfiles/vim/.config/nvim/lua
+[01:09:58.275][info] [#0:script/library.lua:209]: Init builtin library at:	nil
+[01:09:58.280][info] [#0:script/provider/provider.lua:56]: Load config from client	fallback
+[01:09:58.280][info] [#0:script/provider/provider.lua:57]: {
   Lua = {
     diagnostics = {
       globals = { "vim" }
@@ -89,8 +89,8 @@
     }
   }
 }
-[00:58:17.380][info] [#0:script/provider/provider.lua:56]: Load config from client	fallback
-[00:58:17.380][info] [#0:script/provider/provider.lua:57]: {
+[01:09:58.280][info] [#0:script/provider/provider.lua:56]: Load config from client	fallback
+[01:09:58.280][info] [#0:script/provider/provider.lua:57]: {
   Lua = {
     diagnostics = {
       globals = { "vim" }
@@ -100,28 +100,26 @@
     }
   }
 }
-[00:58:17.485][info] [#0:script/workspace/workspace.lua:304]: Preload start:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.486][info] [#0:script/workspace/workspace.lua:310]: Scan files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.487][info] [#0:script/workspace/workspace.lua:304]: Preload start:	<fallback>
-[00:58:17.487][info] [#0:script/workspace/workspace.lua:327]: Scan library at:	file:///Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/meta/Lua%205.4%20en-us%20utf8
-[00:58:17.488][info] [#0:script/workspace/workspace.lua:327]: Scan library at:	file:///Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/meta/Lua%205.4%20en-us%20utf8
-[00:58:17.594][info] [#0:script/workspace/workspace.lua:347]: Found 11 files at:	<fallback>
-[00:58:17.594][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	<fallback>
-[00:58:17.594][info] [#0:script/workspace/workspace.lua:347]: Found 15 files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.594][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.853][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.054] sec: <fallback>
-[00:58:17.853][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: <fallback>
-[00:58:17.853][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	<fallback>
-[00:58:17.853][info] [#0:script/workspace/workspace.lua:349]: Preload finish at:	<fallback>
-[00:58:17.862][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.063] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.862][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.862][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.862][info] [#0:script/workspace/workspace.lua:349]: Preload finish at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[00:58:17.873][warn] [#0:script/proto/proto.lua:122]: Response of [workspace/diagnostic/refresh] error [-32601]: MethodNotFound
-[00:58:17.978][info] [#0:script/provider/diagnostic.lua:552]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/], files count:[15]
-[00:58:17.979][warn] [#0:script/proto/proto.lua:122]: Response of [workspace/diagnostic/refresh] error [-32601]: MethodNotFound
-[00:58:18.013][info] [#0:script/provider/diagnostic.lua:569]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/] finished, takes [0.035] sec.
-[00:58:38.010][info] [#0:script/provider/diagnostic.lua:171]: clearDiagnostics	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/after/plugin/colors.lua
-[00:58:48.030][info] [#0:script/provider/diagnostic.lua:171]: clearDiagnostics	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/after/plugin/colors.lua
-[00:59:10.656][info] [#0:script/provider/provider.lua:170]: Server shutdown.
-[00:59:10.657][warn] [#0:script/pub/report.lua:25]: Load proto error:	Disconnected!
+[01:09:58.386][info] [#0:script/workspace/workspace.lua:304]: Preload start:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.386][info] [#0:script/workspace/workspace.lua:310]: Scan files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.387][info] [#0:script/workspace/workspace.lua:304]: Preload start:	<fallback>
+[01:09:58.387][info] [#0:script/workspace/workspace.lua:327]: Scan library at:	file:///Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/meta/Lua%205.4%20en-us%20utf8
+[01:09:58.388][info] [#0:script/workspace/workspace.lua:327]: Scan library at:	file:///Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/meta/Lua%205.4%20en-us%20utf8
+[01:09:58.495][info] [#0:script/workspace/workspace.lua:347]: Found 11 files at:	<fallback>
+[01:09:58.495][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	<fallback>
+[01:09:58.495][info] [#0:script/workspace/workspace.lua:347]: Found 15 files at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.495][info] [#0:script/workspace/loading.lua:157]: Load files from disk:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.746][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.048] sec: <fallback>
+[01:09:58.746][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: <fallback>
+[01:09:58.746][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	<fallback>
+[01:09:58.746][info] [#0:script/workspace/workspace.lua:349]: Preload finish at:	<fallback>
+[01:09:58.755][info] [#0:script/workspace/loading.lua:169]: Loaded files takes [0.055] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.755][info] [#0:script/workspace/loading.lua:178]: Compile files takes [0.000] sec: file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.755][info] [#0:script/workspace/loading.lua:179]: Loaded finish:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.755][info] [#0:script/workspace/workspace.lua:349]: Preload finish at:	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[01:09:58.763][warn] [#0:script/proto/proto.lua:122]: Response of [workspace/diagnostic/refresh] error [-32601]: MethodNotFound
+[01:09:58.869][info] [#0:script/provider/diagnostic.lua:552]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/], files count:[15]
+[01:09:58.869][warn] [#0:script/proto/proto.lua:122]: Response of [workspace/diagnostic/refresh] error [-32601]: MethodNotFound
+[01:09:58.909][info] [#0:script/provider/diagnostic.lua:569]: Diagnostics scope [file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/] finished, takes [0.039] sec.
+[01:10:29.150][info] [#0:script/provider/provider.lua:170]: Server shutdown.
+[01:10:29.253][info] [#0:script/provider/provider.lua:163]: Server exited.
