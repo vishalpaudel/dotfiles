@@ -42,4 +42,7 @@ mkdir -p "$HOME/.neovim/node"
 # stow -v --target=$HOME $program
 # ls -d */ | xargs stow -v --target=$HOME
 
+# simple bar
+# git clone https://github.com/Jean-Tinland/simple-bar $HOME/Library/Application\ Support/Übersicht/widgets/simple-bar
+
 echo "Copied Vishal's configs"

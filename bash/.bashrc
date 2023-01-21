@@ -1,11 +1,16 @@
 #!/bin/bash
 # echo BASHRC FILE
 
+# BASIC SETTINGS
+set -o vi
+
 # ENVIRONMENT SETUP --------------------------------
 if [ -f ~/.env ]; then
     source ~/.env
 fi
 
+### SYS INFO PRINT
+neofetch
 
 # BASH PROMPT --------------------------------------
 ## COLORS
@@ -41,7 +46,7 @@ if [ -f ~/.aliases ]; then
 fi
 
 
-# PLUGINS ----------------------------------------------
+# Overiding PLUGINS ----------------------------------------------
 
 ## FUZZYFINDER
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -50,9 +55,6 @@ fi
 [[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --noattach
 [ -f ~/.blerc ] && source ~/.blerc
 [[ ${BLE_VERSION-} ]] && ble-attach
-
-# BROOT
-source /Users/pogovishal/.config/broot/launcher/bash/br
 
 # ANACONDA
 # >>> conda initialize >>>
@@ -77,12 +79,5 @@ HISTSIZE=2000  # upper limit in number of lines saved in history
 HISTFILESIZE=2000  # I do not know
 HISTIGNORE="$HISTIGNORE:jrnl *"  # I do not know
 shopt -s histappend  # appends to history instead of rewriting
-
-
-# BASIC SETTINGS
-set -o vi
-
-### SYS INFO PRINT
-neofetch
 
 # EOF
