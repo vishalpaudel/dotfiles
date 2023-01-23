@@ -101,7 +101,7 @@ blehook/eval-after-load keymap_vi blerc/vim-load-hook
 function ble/prompt/backslash:blerc/rps1 {
   ((COLUMNS>=120)) || return 0
 
-  [[ $_ble_term_TERM == kitty:* ]] &&
+  [[ $_ble_term_TERM == alacritty:* ]] &&
     ble/prompt/print $'\e[1l\e[6h\eV'
 
   # ATA
@@ -112,10 +112,10 @@ function ble/prompt/backslash:blerc/rps1 {
   fi
 
   # git info
-  ble/prompt/backslash:contrib/git-info ||
-    ble/prompt/process-prompt-string '\w'
+  ble/prompt/backslash:contrib/git-info
+  # BAD -- Prints the pwd || ble/prompt/process-prompt-string '\w'
 
-  [[ $_ble_term_TERM == kitty:* ]] &&
+  [[ $_ble_term_TERM == alacritty:* ]] &&
      ble/prompt/print $'\eW'
 
   return 0

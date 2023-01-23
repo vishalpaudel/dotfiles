@@ -13,6 +13,15 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
+-- Material theme
+  use({
+	  'marko-cerovac/material.nvim',
+	  as = 'material',
+	  config = function()
+          vim.g.material_style = "deep ocean"
+	  end
+  })
+
   use({
 	  'tanvirtin/monokai.nvim',
 	  as = 'monokai',
@@ -34,6 +43,21 @@ return require('packer').startup(function(use)
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
+
+  -- markdown reader in browser
+  use({
+      "iamcco/markdown-preview.nvim",
+      run = function() vim.fn["mkdp#util#install"]() end,
+  })
+
+  use {
+      'nvim-tree/nvim-tree.lua',
+      requires = {
+          'nvim-tree/nvim-web-devicons', -- optional, for file icons
+          -- use('ryanoasis/vim-devicons')
+      },
+      tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',

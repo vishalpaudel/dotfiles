@@ -1,9 +1,9 @@
-[01:09:58.238][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:66]: Lua Lsp startup, root: 	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server
-[01:09:58.238][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:67]: ROOT:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server
-[01:09:58.238][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:68]: LOGPATH:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/log
-[01:09:58.238][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:69]: METAPATH:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/meta
-[01:09:58.238][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:70]: VERSION:	3.6.4-dev
-[01:09:58.261][info] [#0:script/service/service.lua:141]: 
+[13:38:59.289][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:66]: Lua Lsp startup, root: 	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server
+[13:38:59.290][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:67]: ROOT:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server
+[13:38:59.290][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:68]: LOGPATH:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/log
+[13:38:59.290][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:69]: METAPATH:	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/meta
+[13:38:59.290][info] [#0:/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/main.lua:70]: VERSION:	3.6.4-dev
+[13:38:59.317][info] [#0:script/service/service.lua:141]: 
 ========= Medical Examination Report =========
     --------------- Memory ---------------
         Total: 1.563 MB
@@ -25,7 +25,7 @@
         Holdon:   0
         Waiting:  0
 ==============================================
-[01:09:58.265][info] [#0:script/language.lua:137]: VSC language: nil
-[01:09:58.265][info] [#0:script/language.lua:138]: LS  language: en-us
-[01:09:58.265][info] [#0:script/workspace/workspace.lua:38]: Workspace init root: 	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
-[01:09:58.265][info] [#0:script/workspace/workspace.lua:42]: Log path: 	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/log/file_Users_vishalpaudel_dotfiles_vim_.config_nvim_lua_.log
+[13:38:59.323][info] [#0:script/language.lua:137]: VSC language: nil
+[13:38:59.323][info] [#0:script/language.lua:138]: LS  language: en-us
+[13:38:59.323][info] [#0:script/workspace/workspace.lua:38]: Workspace init root: 	file:///Users/vishalpaudel/dotfiles/vim/.config/nvim/lua/
+[13:38:59.323][info] [#0:script/workspace/workspace.lua:42]: Log path: 	/Users/vishalpaudel/.local/share/nvim/mason/packages/lua-language-server/extension/server/log/file_Users_vishalpaudel_dotfiles_vim_.config_nvim_lua_.log

@@ -1,32 +1,57 @@
-vim.opt.guicursor = ""
+local opt = vim.opt
 
-vim.opt.nu = true
-vim.opt.relativenumber = true
+opt.termguicolors = true  -- Enables 24-bit RGB color support
+opt.guicursor = ""  -- keeps the cursor fat (NOT TRUE)
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+opt.number = true  -- Show line numbers
+opt.relativenumber = true  -- line num. but relative to the curr. line
 
-vim.opt.smartindent = true
+opt.ignorecase = true  -- Ignore case search
+opt.smartcase = true  -- Smart search
 
-vim.opt.wrap = false
 
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-vim.opt.undofile = true
+opt.tabstop = 4  -- Number of spaces that a <Tab> in the file counts for
+opt.softtabstop = 4  -- Number of spaces that a <Tab> counts
+opt.shiftwidth = 4  -- Number of spaces to use for each step of auto indent
+opt.expandtab = true  -- Use spaces instead of tab characters
 
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
+opt.smartindent = true  -- Smart auto-indentations
 
-vim.opt.termguicolors = true
+opt.wrap = false  -- Longer line than the terminal
 
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+opt.swapfile = false  -- DUNNO
+opt.backup = false  -- DUNNO
+opt.undodir = os.getenv("HOME") .. "/.vim/undodir"  -- DUNNO
+opt.undofile = true  -- Persist undo history to an undo file.
+opt.undolevels = 100000 -- Maximum number of changes that can be undone.
 
-vim.opt.updatetime = 50
+opt.hlsearch = true  -- Highlights searched elements
+opt.incsearch = true  -- DUNNO
 
-vim.opt.colorcolumn = "80"
+opt.scrolloff = 8  -- Number of row-paddings before a vertical scroll happens
+opt.signcolumn = 'yes'  -- Always draw the sign column even if there is no sign in it
+opt.isfname:append("@-@")  -- DUNNO
 
+opt.updatetime = 50  -- Fast update of buffers (?)
+
+opt.colorcolumn = "80"  -- DUNNO
+
+opt.cursorline = true  -- Highlight cursor line
+opt.cursorcolumn = true  -- Highlight cursor column
+
+opt.mouse = table.concat({ -- Enable mouse support for normal and visual mode
+  'n',
+  'v'
+})
+
+opt.list = true
+opt.listchars = {
+  tab = '→ ',
+}
+
+-- UI Characters
+opt.fillchars = {
+  vert = ' ', -- Vertical separator
+  msgsep = '─', -- Message separator
+  eob = ' ' -- Empty line indicator
+}
