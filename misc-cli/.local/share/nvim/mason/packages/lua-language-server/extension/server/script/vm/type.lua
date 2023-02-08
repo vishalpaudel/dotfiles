@@ -5,6 +5,10 @@ local config    = require 'config.config'
 local util      = require 'utility'
 local lang      = require 'language'
 
+---@class vm.ANY
+---@diagnostic disable-next-line: assign-type-mismatch
+vm.ANY = debug.upvalueid(require, 1)
+
 ---@alias typecheck.err vm.node.object|string|vm.node
 
 ---@param object vm.node.object
@@ -217,6 +221,9 @@ local function checkValue(parent, child, mark, errs)
 
     if parent.type == 'doc.type.table' then
         if child.type == 'doc.type.table' then
+            if child == parent then
+                return true
+            end
             ---@cast parent parser.object
             ---@cast child parser.object
             local uri = guide.getUri(parent)
@@ -294,7 +301,9 @@ function vm.isSubType(uri, child, parent, mark, errs)
                 end
             end
             if hasKnownType > 0 then
-                if errs and hasKnownType > 1 then
+                if  errs
+                and hasKnownType > 1
+                and #vm.getInfer(child):getSubViews(uri) > 1 then
                     errs[#errs+1] = 'TYPE_ERROR_CHILD_ALL_DISMATCH'
                     errs[#errs+1] = child
                     errs[#errs+1] = parent
@@ -369,7 +378,9 @@ function vm.isSubType(uri, child, parent, mark, errs)
             end
         end
         if hasKnownType > 0 then
-            if errs and hasKnownType > 1 then
+            if  errs
+            and hasKnownType > 1
+            and #vm.getInfer(parent):getSubViews(uri) > 1 then
                 errs[#errs+1] = 'TYPE_ERROR_PARENT_ALL_DISMATCH'
                 errs[#errs+1] = child
                 errs[#errs+1] = parent
@@ -696,6 +707,7 @@ local ErrorMessageMap = {
 ---@return string
 function vm.viewTypeErrorMessage(uri, errs)
     local lines = {}
+    local mark  = {}
     local index = 1
     while true do
         local name = errs[index]
@@ -720,21 +732,31 @@ function vm.viewTypeErrorMessage(uri, errs)
                 lparams[paramName] = 'table'
             elseif value.type == 'generic' then
                 ---@cast value vm.generic
-                lparams[paramName] = vm.viewObject(value, uri)
+                lparams[paramName] = vm.getInfer(value):view(uri)
+            elseif value.type == 'variable' then
             else
-                ---@cast value -string, -vm.global, -vm.node, -vm.generic
+                ---@cast value -string, -vm.global, -vm.node, -vm.generic, -vm.variable
                 if paramName == 'key' then
                     lparams[paramName] = vm.viewKey(value, uri)
                 else
-                    lparams[paramName] = vm.viewObject(value, uri)
+                    lparams[paramName] = vm.getInfer(value):view(uri)
                                       or vm.getInfer(value):view(uri)
                 end
             end
             index = index + 1
         end
         local line = lang.script(name, lparams)
-        lines[#lines+1] = '- ' .. line
+        if not mark[line] then
+            mark[line] = true
+            lines[#lines+1] = '- ' .. line
+        end
     end
     util.revertTable(lines)
-    return table.concat(lines, '\n')
+    if #lines > 15 then
+        lines[13] = ('...(+%d)'):format(#lines - 15)
+        table.move(lines, #lines - 2, #lines, 14)
+        return table.concat(lines, '\n', 1, 16)
+    else
+        return table.concat(lines, '\n')
+    end
 end

@@ -1,1 +1,0 @@
-{"name":"cpplint","links":{"bin":{"cpplint":"venv\/bin\/cpplint"}},"metrics":{"start_time":1673865939513,"completion_time":1673865943040},"secondary_sources":[],"schema_version":"1.0","primary_source":{"type":"pip3","package":"cpplint"}}

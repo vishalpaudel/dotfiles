@@ -45,9 +45,6 @@ end
 
 --- 初始化工作区
 function m.create(uri)
-    if furi.isValid(uri) then
-        uri = furi.normalize(uri)
-    end
     log.info('Workspace create: ', uri)
     local scp = scope.createFolder(uri)
     m.folders[#m.folders+1] = scp
@@ -87,26 +84,45 @@ function m.getRootUri(uri)
 end
 
 local globInteferFace = {
-    type = function (path)
+    type = function (path, data)
+        if data[path] then
+            return data[path]
+        end
         local result
         pcall(function ()
-            if fs.is_directory(path) then
+            if fs.is_directory(fs.path(path)) then
                 result = 'directory'
+                data[path] = 'directory'
             else
                 result = 'file'
+                data[path] = 'file'
             end
         end)
         return result
     end,
-    list = function (path)
-        local fullPath = fs.path(path)
-        if not fs.is_directory(fullPath) then
+    list = function (path, data)
+        if data[path] == 'file' then
             return nil
         end
+        local fullPath = fs.path(path)
+        if not fs.is_directory(fullPath) then
+            data[path] = 'file'
+            return nil
+        end
+        data[path] = true
         local paths = {}
         pcall(function ()
-            for fullpath in fs.pairs(fullPath) do
-                paths[#paths+1] = fullpath:string()
+            for fullpath, status in fs.pairs(fullPath) do
+                local pathString = fullpath:string()
+                paths[#paths+1] = pathString
+                local st = status:type()
+                if st == 'directory'
+                or st == 'symlink'
+                or st == 'junction' then
+                    data[pathString] = 'directory'
+                else
+                    data[pathString] = 'file'
+                end
             end
         end)
         return paths
@@ -204,9 +220,12 @@ function m.getLibraryMatchers(scp)
             librarys[m.normalize(path)] = true
         end
     end
-    log.debug('meta path:', scp:get 'metaPath')
-    if scp:get 'metaPath' then
-        librarys[m.normalize(scp:get 'metaPath')] = true
+    local metaPaths = scp:get 'metaPaths'
+    log.debug('meta path:', inspect(metaPaths))
+    if metaPaths then
+        for _, metaPath in ipairs(metaPaths) do
+            librarys[m.normalize(metaPath)] = true
+        end
     end
 
     local matchers = {}
@@ -225,13 +244,12 @@ function m.getLibraryMatchers(scp)
     end
 
     scp:set('libraryMatcher', matchers)
-    log.debug('library matcher:', inspect(matchers))
+    --log.debug('library matcher:', inspect(matchers))
 
     return matchers
 end
 
 --- 文件是否被忽略
----@async
 ---@param uri uri
 function m.isIgnored(uri)
     local scp    = scope.getScope(uri)
@@ -308,7 +326,13 @@ function m.awaitPreload(scp)
 
     if scp.uri and not scp:get('bad root') then
         log.info('Scan files at:', scp:getName())
-        scp:gc(fw.watch(m.normalize(furi.decode(scp.uri))))
+        scp:gc(fw.watch(m.normalize(furi.decode(scp.uri)), true, function (path)
+            local rpath = m.getRelativePath(path)
+            if native(rpath) then
+                return false
+            end
+            return true
+        end))
         local count = 0
         ---@async
         native:scan(furi.decode(scp.uri), function (path)
@@ -326,7 +350,13 @@ function m.awaitPreload(scp)
     for _, libMatcher in ipairs(librarys) do
         log.info('Scan library at:', libMatcher.uri)
         local count = 0
-        scp:gc(fw.watch(furi.decode(libMatcher.uri)))
+        scp:gc(fw.watch(furi.decode(libMatcher.uri), true, function (path)
+            local rpath = m.getRelativePath(path)
+            if libMatcher.matcher(rpath) then
+                return false
+            end
+            return true
+        end))
         scp:addLink(libMatcher.uri)
         ---@async
         libMatcher.matcher:scan(furi.decode(libMatcher.uri), function (path)
@@ -536,9 +566,24 @@ function m.awaitReady(uri)
 end
 
 ---@param uri uri
+---@return boolean
 function m.isReady(uri)
     local scp = scope.getScope(uri)
     return scp:get('ready') == true
+end
+
+---@return boolean
+function m.isAllReady()
+    local scp = scope.fallback
+    if not scp:get 'ready' then
+        return false
+    end
+    for _, folder in ipairs(scope.folders) do
+        if not folder:get 'ready' then
+            return false
+        end
+    end
+    return true
 end
 
 function m.getLoadingProcess(uri)

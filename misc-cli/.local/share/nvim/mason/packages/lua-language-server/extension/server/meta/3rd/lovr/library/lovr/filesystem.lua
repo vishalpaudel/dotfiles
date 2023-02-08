@@ -269,7 +269,11 @@ function lovr.filesystem.remove(path) end
 ---
 ---Set the name of the save directory.
 ---
----@param identity string # The new name of the save directory.
+---This function can only be called once and is called automatically at startup, so this function normally isn't called manually.
+---
+---However, the identity can be changed by setting the `t.identity` option in `lovr.conf`.
+---
+---@param identity string # The name of the save directory.
 function lovr.filesystem.setIdentity(identity) end
 
 ---
@@ -310,8 +314,8 @@ function lovr.filesystem.unmount(path) end
 ---
 ---If the file already has data in it, it will be replaced with the new content.
 ---
----@overload fun(filename: string, blob: lovr.Blob):number
+---@overload fun(filename: string, blob: lovr.Blob):boolean
 ---@param filename string # The file to write to.
 ---@param content string # A string to write to the file.
----@return number bytes # The number of bytes written.
+---@return boolean success # Whether the write was successful.
 function lovr.filesystem.write(filename, content) end

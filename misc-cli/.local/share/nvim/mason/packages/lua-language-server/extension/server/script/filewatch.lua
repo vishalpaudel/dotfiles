@@ -32,16 +32,28 @@ local m = {}
 m._eventList = {}
 m._watchings = {}
 
-function m.watch(path)
-    if path == '' then
+---@async
+---@param path string
+---@param recursive boolean
+---@param filter? fun(path: string):boolean
+function m.watch(path, recursive, filter)
+    if path == '' or not fs.is_directory(fs.path(path)) then
         return function () end
     end
     if m._watchings[path] then
         m._watchings[path].count = m._watchings[path].count + 1
     else
+        local watch = fw.create()
+        if recursive then
+            watch:set_recursive(true)
+            watch:set_follow_symlinks(true)
+            watch:set_filter(filter)
+        end
+        log.debug('Watch add:', path)
+        watch:add(path)
         m._watchings[path] = {
             count = 1,
-            id    = fw.add(path),
+            watch = watch,
         }
         log.debug('fw.add', path)
     end
@@ -53,7 +65,6 @@ function m.watch(path)
         removed = true
         m._watchings[path].count = m._watchings[path].count - 1
         if m._watchings[path].count == 0 then
-            fw.remove(m._watchings[path].id)
             m._watchings[path] = nil
             log.debug('fw.remove', path)
         end
@@ -75,19 +86,22 @@ end
 
 function m.update()
     local collect
-    for _ = 1, 10000 do
-        local ev, path = fw.select()
-        if not ev then
-            break
-        end
-        log.debug('filewatch:', ev, path)
-        if not collect then
-            collect = {}
-        end
-        if ev == 'modify' then
-            collect[path] = (collect[path] or 0) | MODIFY
-        elseif ev == 'rename' then
-            collect[path] = (collect[path] or 0) | RENAME
+    for _, watching in pairs(m._watchings) do
+        local watch = watching.watch
+        for _ = 1, 10000 do
+            local ev, path = watch:select()
+            if not ev then
+                break
+            end
+            log.debug('filewatch:', ev, path)
+            if not collect then
+                collect = {}
+            end
+            if ev == 'modify' then
+                collect[path] = (collect[path] or 0) | MODIFY
+            elseif ev == 'rename' then
+                collect[path] = (collect[path] or 0) | RENAME
+            end
         end
     end
 

@@ -25,7 +25,7 @@ config.runtime.unicodeName        =
 config.runtime.nonstandardSymbol  =
 "支持非标准的符号。请务必确认你的运行环境支持这些符号。"
 config.runtime.plugin             =
-"插件路径，请查阅[文档](https://github.com/sumneko/lua-language-server/wiki/Plugins)了解用法。"
+"插件路径，请查阅[文档](https://github.com/LuaLS/lua-language-server/wiki/Plugins)了解用法。"
 config.runtime.pluginArgs         = -- TODO: need translate!
 "Additional arguments for the plugin."
 config.runtime.fileEncoding       =
@@ -132,7 +132,7 @@ config.workspace.checkThirdParty  =
 * Jass
 ]]
 config.workspace.userThirdParty          =
-'在这里添加私有的第三方库适配文件路径，请参考内置的[配置文件路径](https://github.com/sumneko/lua-language-server/tree/master/meta/3rd)'
+'在这里添加私有的第三方库适配文件路径，请参考内置的[配置文件路径](https://github.com/LuaLS/lua-language-server/tree/master/meta/3rd)'
 config.workspace.supportScheme           =
 '为以下 scheme 的lua文件提供语言服务。'
 config.completion.enable                 =
@@ -255,6 +255,8 @@ config.hint.semicolon.SameLine           =
 '2个语句在同一行时，在它们之间显示分号。'
 config.hint.semicolon.Disable            =
 '禁用虚拟分号。'
+config.codeLens.enable                   = -- TODO: need translate!
+'启用代码度量。'
 config.format.enable                     =
 '启用代码格式化程序。'
 config.format.defaultConfig              =
@@ -266,20 +268,20 @@ config.spell.dict                        =
 '拼写检查的自定义单词。'
 config.telemetry.enable                  =
 [[
-启用遥测，通过网络发送你的编辑器信息与错误日志。在[此处](https://github.com/sumneko/lua-language-server/wiki/Home#privacy)阅读我们的隐私声明。
+启用遥测，通过网络发送你的编辑器信息与错误日志。在[此处](https://github.com/LuaLS/lua-language-server/wiki/Home#privacy)阅读我们的隐私声明。
 ]]
 config.misc.parameters                   =
-'VSCode中启动语言服务时的[命令行参数](https://github.com/sumneko/lua-language-server/wiki/Getting-Started#arguments)。'
+'VSCode中启动语言服务时的[命令行参数](https://github.com/LuaLS/lua-language-server/wiki/Getting-Started#arguments)。'
 config.misc.executablePath               =
 'VSCode中指定可执行文件路径。'
 config.IntelliSense.traceLocalSet        =
-'请查阅[文档](https://github.com/sumneko/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
+'请查阅[文档](https://github.com/LuaLS/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
 config.IntelliSense.traceReturn          =
-'请查阅[文档](https://github.com/sumneko/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
+'请查阅[文档](https://github.com/LuaLS/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
 config.IntelliSense.traceBeSetted        =
-'请查阅[文档](https://github.com/sumneko/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
+'请查阅[文档](https://github.com/LuaLS/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
 config.IntelliSense.traceFieldInject     =
-'请查阅[文档](https://github.com/sumneko/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
+'请查阅[文档](https://github.com/LuaLS/lua-language-server/wiki/IntelliSense-optional-features)了解用法。'
 config.type.castNumberToInteger          =
 '允许将 `number` 类型赋给 `integer` 类型。'
 config.type.weakUnionCheck               =
@@ -368,6 +370,8 @@ config.diagnostics['duplicate-doc-param']   = -- TODO: need translate!
 'Enable diagnostics for a duplicated param annotation name.'
 config.diagnostics['duplicate-set-field']   = -- TODO: need translate!
 'Enable diagnostics for setting the same field in a class more than once.'
+config.diagnostics['invisible']             = -- TODO: need translate!
+'Enable diagnostics for accesses to fields which are invisible.'
 config.diagnostics['missing-parameter']     = -- TODO: need translate!
 'Enable diagnostics for function calls where the number of arguments is less than the number of annotated function parameters.'
 config.diagnostics['missing-return']        = -- TODO: need translate!
@@ -408,3 +412,14 @@ config.diagnostics['unknown-operator']      = -- TODO: need translate!
 'Enable diagnostics for unknown operators.'
 config.diagnostics['unreachable-code']      = -- TODO: need translate!
 'Enable diagnostics for unreachable code.'
+config.typeFormat.config                    = -- TODO: need translate!
+'Configures the formatting behavior while typing Lua code.'
+config.typeFormat.config.auto_complete_end  = -- TODO: need translate!
+'Controls if `end` is automatically completed at suitable positions.'
+config.typeFormat.config.auto_complete_table_sep = -- TODO: need translate!
+'Controls if a separator is automatically appended at the end of a table declaration.'
+config.typeFormat.config.format_line        = -- TODO: need translate!
+'Controls if a line is formatted at all.'
+
+command.exportDocument =
+'导出文档...'

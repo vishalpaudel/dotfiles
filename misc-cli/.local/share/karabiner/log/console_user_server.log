@@ -371,3 +371,154 @@
 [2023-01-22 12:46:39.356] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
 [2023-01-22 12:46:39.465] [info] [console_user_server] core_configuration is updated.
 [2023-01-22 12:47:09.526] [info] [console_user_server] Check for updates...
+[2023-01-23 23:24:34.938] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-23 23:24:34.948] [info] [console_user_server] core_configuration is updated.
+[2023-01-24 18:09:43.770] [info] [console_user_server] on_console_changed: on_console:false
+[2023-01-24 18:09:43.777] [info] [console_user_server] grabber_client is stopped.
+[2023-01-24 18:32:18.828] [info] [console_user_server] version 14.11.0
+[2023-01-24 18:32:27.297] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-24 18:32:27.301] [info] [console_user_server] grabber_client is started.
+[2023-01-24 18:32:27.302] [info] [console_user_server] grabber_client is connected.
+[2023-01-24 18:32:28.268] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-24 18:32:28.279] [info] [console_user_server] core_configuration is updated.
+[2023-01-24 18:32:58.428] [info] [console_user_server] Check for updates...
+[2023-01-29 10:23:28.466] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-29 10:23:28.477] [info] [console_user_server] core_configuration is updated.
+[2023-01-29 10:23:56.351] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-29 10:23:56.357] [info] [console_user_server] core_configuration is updated.
+[2023-01-29 10:25:55.443] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-29 10:27:20.130] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-29 10:27:20.136] [error] [console_user_server] parse error in /Users/vishalpaudel/.config/karabiner/karabiner.json: [json.exception.parse_error.101] parse error at line 436, column 13: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+[2023-01-31 17:19:33.151] [info] [console_user_server] version 14.11.0
+[2023-01-31 17:19:40.546] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-31 17:19:40.547] [info] [console_user_server] grabber_client is started.
+[2023-01-31 17:19:40.548] [info] [console_user_server] grabber_client is connected.
+[2023-01-31 17:19:40.667] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:19:40.671] [error] [console_user_server] parse error in /Users/vishalpaudel/.config/karabiner/karabiner.json: [json.exception.parse_error.101] parse error at line 436, column 13: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+[2023-01-31 17:19:40.671] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:20:10.772] [info] [console_user_server] Check for updates...
+[2023-01-31 17:26:13.343] [info] [console_user_server] version 14.11.0
+[2023-01-31 17:26:13.430] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-31 17:26:13.431] [info] [console_user_server] grabber_client is started.
+[2023-01-31 17:26:13.432] [info] [console_user_server] grabber_client is connected.
+[2023-01-31 17:26:13.499] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:26:13.500] [error] [console_user_server] parse error in /Users/vishalpaudel/.config/karabiner/karabiner.json: [json.exception.parse_error.101] parse error at line 436, column 13: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+[2023-01-31 17:26:13.500] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:26:43.623] [info] [console_user_server] Check for updates...
+[2023-01-31 17:29:37.226] [info] [console_user_server] version 14.11.0
+[2023-01-31 17:29:37.374] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-31 17:29:37.375] [info] [console_user_server] grabber_client is started.
+[2023-01-31 17:29:37.375] [info] [console_user_server] grabber_client is connected.
+[2023-01-31 17:29:37.486] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:29:37.486] [error] [console_user_server] parse error in /Users/vishalpaudel/.config/karabiner/karabiner.json: [json.exception.parse_error.101] parse error at line 436, column 13: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+[2023-01-31 17:29:37.486] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:30:07.538] [info] [console_user_server] Check for updates...
+[2023-01-31 17:31:56.503] [info] [console_user_server] version 14.11.0
+[2023-01-31 17:31:56.610] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-31 17:31:56.611] [info] [console_user_server] grabber_client is started.
+[2023-01-31 17:31:56.611] [info] [console_user_server] grabber_client is connected.
+[2023-01-31 17:31:56.675] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:31:56.675] [error] [console_user_server] parse error in /Users/vishalpaudel/.config/karabiner/karabiner.json: [json.exception.parse_error.101] parse error at line 436, column 13: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+[2023-01-31 17:31:56.675] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:32:26.716] [info] [console_user_server] Check for updates...
+[2023-01-31 17:33:38.025] [info] [console_user_server] version 14.11.0
+[2023-01-31 17:33:38.126] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-31 17:33:38.127] [info] [console_user_server] grabber_client is started.
+[2023-01-31 17:33:38.127] [info] [console_user_server] grabber_client is connected.
+[2023-01-31 17:33:38.192] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:33:38.192] [error] [console_user_server] parse error in /Users/vishalpaudel/.config/karabiner/karabiner.json: [json.exception.parse_error.101] parse error at line 436, column 13: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+[2023-01-31 17:33:38.194] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:33:51.669] [info] [console_user_server] version 14.11.0
+[2023-01-31 17:33:51.771] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-31 17:33:51.772] [info] [console_user_server] grabber_client is started.
+[2023-01-31 17:33:51.772] [info] [console_user_server] grabber_client is connected.
+[2023-01-31 17:33:51.835] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:33:51.836] [error] [console_user_server] parse error in /Users/vishalpaudel/.config/karabiner/karabiner.json: [json.exception.parse_error.101] parse error at line 436, column 13: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+[2023-01-31 17:33:51.836] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:34:02.444] [info] [console_user_server] version 14.11.0
+[2023-01-31 17:34:02.529] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-31 17:34:02.529] [info] [console_user_server] grabber_client is started.
+[2023-01-31 17:34:02.530] [info] [console_user_server] grabber_client is connected.
+[2023-01-31 17:34:02.590] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:34:02.590] [error] [console_user_server] parse error in /Users/vishalpaudel/.config/karabiner/karabiner.json: [json.exception.parse_error.101] parse error at line 436, column 13: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+[2023-01-31 17:34:02.590] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:34:19.054] [info] [console_user_server] version 14.11.0
+[2023-01-31 17:34:19.160] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-31 17:34:19.160] [info] [console_user_server] grabber_client is started.
+[2023-01-31 17:34:19.161] [info] [console_user_server] grabber_client is connected.
+[2023-01-31 17:34:19.222] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:34:19.222] [error] [console_user_server] parse error in /Users/vishalpaudel/.config/karabiner/karabiner.json: [json.exception.parse_error.101] parse error at line 436, column 13: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+[2023-01-31 17:34:19.222] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:34:29.536] [info] [console_user_server] version 14.11.0
+[2023-01-31 17:34:29.688] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-31 17:34:29.689] [info] [console_user_server] grabber_client is started.
+[2023-01-31 17:34:29.689] [info] [console_user_server] grabber_client is connected.
+[2023-01-31 17:34:29.756] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:34:29.757] [error] [console_user_server] parse error in /Users/vishalpaudel/.config/karabiner/karabiner.json: [json.exception.parse_error.101] parse error at line 436, column 13: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+[2023-01-31 17:34:29.757] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:34:45.906] [info] [console_user_server] version 14.11.0
+[2023-01-31 17:34:46.024] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-31 17:34:46.024] [info] [console_user_server] grabber_client is started.
+[2023-01-31 17:34:46.025] [info] [console_user_server] grabber_client is connected.
+[2023-01-31 17:34:46.087] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:34:46.087] [error] [console_user_server] parse error in /Users/vishalpaudel/.config/karabiner/karabiner.json: [json.exception.parse_error.101] parse error at line 436, column 13: syntax error while parsing value - unexpected ']'; expected '[', '{', or a literal
+[2023-01-31 17:34:46.087] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:35:16.144] [info] [console_user_server] Check for updates...
+[2023-01-31 17:36:10.630] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:36:10.635] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:37:42.718] [info] [console_user_server] version 14.11.0
+[2023-01-31 17:37:51.091] [info] [console_user_server] on_console_changed: on_console:true
+[2023-01-31 17:37:51.093] [info] [console_user_server] grabber_client is started.
+[2023-01-31 17:37:51.093] [info] [console_user_server] grabber_client is connected.
+[2023-01-31 17:37:51.177] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-01-31 17:37:51.182] [info] [console_user_server] core_configuration is updated.
+[2023-01-31 17:38:21.198] [info] [console_user_server] Check for updates...
+[2023-02-04 12:59:16.153] [info] [console_user_server] version 14.11.0
+[2023-02-04 12:59:24.205] [info] [console_user_server] on_console_changed: on_console:true
+[2023-02-04 12:59:24.206] [info] [console_user_server] grabber_client is started.
+[2023-02-04 12:59:24.207] [info] [console_user_server] grabber_client is connected.
+[2023-02-04 12:59:27.392] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-02-04 12:59:27.397] [info] [console_user_server] core_configuration is updated.
+[2023-02-04 12:59:57.421] [info] [console_user_server] Check for updates...
+[2023-02-05 10:59:30.291] [info] [console_user_server] version 14.11.0
+[2023-02-05 10:59:43.695] [info] [console_user_server] on_console_changed: on_console:true
+[2023-02-05 10:59:43.697] [info] [console_user_server] grabber_client is started.
+[2023-02-05 10:59:43.698] [info] [console_user_server] grabber_client is connected.
+[2023-02-05 10:59:44.740] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-02-05 10:59:44.747] [info] [console_user_server] core_configuration is updated.
+[2023-02-05 11:00:14.764] [info] [console_user_server] Check for updates...
+[2023-02-05 11:20:58.536] [info] [console_user_server] version 14.11.0
+[2023-02-05 11:21:13.860] [info] [console_user_server] on_console_changed: on_console:true
+[2023-02-05 11:21:13.863] [info] [console_user_server] grabber_client is started.
+[2023-02-05 11:21:13.864] [info] [console_user_server] grabber_client is connected.
+[2023-02-05 11:21:16.227] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-02-05 11:21:16.233] [info] [console_user_server] core_configuration is updated.
+[2023-02-05 11:21:46.257] [info] [console_user_server] Check for updates...
+[2023-02-05 11:42:04.396] [info] [console_user_server] version 14.11.0
+[2023-02-05 11:42:11.501] [info] [console_user_server] on_console_changed: on_console:true
+[2023-02-05 11:42:11.503] [info] [console_user_server] grabber_client is started.
+[2023-02-05 11:42:11.503] [info] [console_user_server] grabber_client is connected.
+[2023-02-05 11:42:17.632] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-02-05 11:42:17.635] [info] [console_user_server] core_configuration is updated.
+[2023-02-05 11:42:47.654] [info] [console_user_server] Check for updates...
+[2023-02-05 11:51:11.301] [info] [console_user_server] version 14.11.0
+[2023-02-05 11:51:18.540] [info] [console_user_server] on_console_changed: on_console:true
+[2023-02-05 11:51:18.542] [info] [console_user_server] grabber_client is started.
+[2023-02-05 11:51:18.542] [info] [console_user_server] grabber_client is connected.
+[2023-02-05 11:51:21.660] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-02-05 11:51:21.665] [info] [console_user_server] core_configuration is updated.
+[2023-02-05 11:51:51.689] [info] [console_user_server] Check for updates...
+[2023-02-06 07:48:14.711] [info] [console_user_server] version 14.11.0
+[2023-02-06 07:48:22.969] [info] [console_user_server] on_console_changed: on_console:true
+[2023-02-06 07:48:22.997] [info] [console_user_server] grabber_client is started.
+[2023-02-06 07:48:23.004] [info] [console_user_server] grabber_client is connected.
+[2023-02-06 07:48:26.060] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-02-06 07:48:26.106] [info] [console_user_server] core_configuration is updated.
+[2023-02-06 07:48:56.158] [info] [console_user_server] Check for updates...
+[2023-02-07 07:26:21.515] [info] [console_user_server] version 14.11.0
+[2023-02-07 07:26:30.864] [info] [console_user_server] on_console_changed: on_console:true
+[2023-02-07 07:26:30.867] [info] [console_user_server] grabber_client is started.
+[2023-02-07 07:26:30.867] [info] [console_user_server] grabber_client is connected.
+[2023-02-07 07:26:30.960] [info] [console_user_server] Load /Users/vishalpaudel/.config/karabiner/karabiner.json...
+[2023-02-07 07:26:30.965] [info] [console_user_server] core_configuration is updated.
+[2023-02-07 07:27:00.983] [info] [console_user_server] Check for updates...

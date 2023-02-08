@@ -10,7 +10,7 @@ if [ -f ~/.env ]; then
 fi
 
 ### SYS INFO PRINT
-neofetch
+# neofetch
 
 # BASH PROMPT --------------------------------------
 ## COLORS

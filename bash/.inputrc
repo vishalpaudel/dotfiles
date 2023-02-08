@@ -1,5 +1,5 @@
 
-echo INPUTRC
+# echo INPUTRC
 
 set editing-mode vi
 set completion-ignore-case on

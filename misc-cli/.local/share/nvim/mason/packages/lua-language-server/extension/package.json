@@ -25,10 +25,20 @@
 			{
 				"command": "lua.psi.view",
 				"title": "Lua Psi Viewer"
+			},
+			{
+				"command": "lua.exportDocument",
+				"title": "%command.exportDocument%"
 			}
 		],
 		"configuration": {
 			"properties": {
+				"Lua.codeLens.enable": {
+					"default": false,
+					"markdownDescription": "%config.codeLens.enable%",
+					"scope": "resource",
+					"type": "boolean"
+				},
 				"Lua.completion.autoRequire": {
 					"default": true,
 					"markdownDescription": "%config.completion.autoRequire%",
@@ -207,6 +217,7 @@
 							"missing-return-value",
 							"need-check-nil",
 							"need-paren",
+							"nesting-long-mark",
 							"newfield-call",
 							"newline-call",
 							"no-unknown",
@@ -2229,7 +2240,7 @@
 				},
 				"Lua.format.defaultConfig": {
 					"additionalProperties": false,
-					"default": {},
+					"default": [],
 					"markdownDescription": "%config.format.defaultConfig%",
 					"patternProperties": {
 						".*": {
@@ -2654,7 +2665,7 @@
 				},
 				"Lua.runtime.special": {
 					"additionalProperties": false,
-					"default": {},
+					"default": [],
 					"markdownDescription": "%config.runtime.special%",
 					"patternProperties": {
 						".*": {
@@ -2744,18 +2755,6 @@
 					"markdownDescription": "%config.spell.dict%",
 					"scope": "resource",
 					"type": "array"
-				},
-				"Lua.telemetry.enable": {
-					"default": null,
-					"markdownDescription": "%config.telemetry.enable%",
-					"scope": "resource",
-					"tags": [
-						"telemetry"
-					],
-					"type": [
-						"boolean",
-						"null"
-					]
 				},
 				"Lua.type.castNumberToInteger": {
 					"default": true,
@@ -2855,19 +2854,6 @@
 					"scope": "resource",
 					"type": "integer"
 				},
-				"Lua.workspace.supportScheme": {
-					"default": [
-						"file",
-						"untitled",
-						"git"
-					],
-					"items": {
-						"type": "string"
-					},
-					"markdownDescription": "%config.workspace.supportScheme%",
-					"scope": "resource",
-					"type": "array"
-				},
 				"Lua.workspace.useGitIgnore": {
 					"default": true,
 					"markdownDescription": "%config.workspace.useGitIgnore%",
@@ -2918,7 +2904,7 @@
 		"menus": {
 			"editor/context": [
 				{
-					"command": "lua.psi.view",
+					"command": "lua.exportDocument",
 					"group": "z_commands",
 					"when": "resourceLangId == lua"
 				}
@@ -3063,10 +3049,10 @@
 	"publisher": "sumneko",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/sumneko/lua-language-server"
+		"url": "https://github.com/LuaLS/lua-language-server"
 	},
 	"sponsor": {
-		"url": "https://github.com/sumneko/lua-language-server/issues/484"
+		"url": "https://github.com/LuaLS/lua-language-server/issues/484"
 	},
-	"version": "3.6.4"
+	"version": "3.6.10"
 }

@@ -22,6 +22,7 @@ local diag         = require 'proto.diagnostic'
 local wssymbol     = require 'core.workspace-symbol'
 local findSource   = require 'core.find-source'
 local diagnostic   = require 'provider.diagnostic'
+local autoRequire  = require 'core.completion.auto-require'
 
 local diagnosticModes = {
     'disable-next-line',
@@ -82,9 +83,9 @@ local function findNearestSource(state, position)
     return source
 end
 
-local function findNearestTableField(state, position)
-    local uri     = state.uri
-    local text    = files.getText(uri)
+local function findNearestTable(state, position)
+    local uri  = state.uri
+    local text = files.getText(uri)
     if not text then
         return nil
     end
@@ -100,13 +101,47 @@ local function findNearestTableField(state, position)
     local sposition = guide.offsetToPosition(state, soffset)
     local source
     guide.eachSourceContain(state.ast, sposition, function (src)
-        if src.type == 'table'
-        or src.type == 'tablefield'
-        or src.type == 'tableindex'
-        or src.type == 'tableexp' then
+        if src.type == 'table' then
             source = src
         end
     end)
+
+    if not source then
+        return nil
+    end
+
+    for _, field in ipairs(source) do
+        if field.start <= position and (field.range or field.finish) >= position then
+            if field.type == 'tableexp' then
+                if field.value.type == 'getlocal'
+                or field.value.type == 'getglobal' then
+                    if field.finish >= position then
+                        return source
+                    else
+                        return nil
+                    end
+                end
+            end
+            if field.type == 'tablefield' then
+                if field.finish >= position then
+                    return source
+                else
+                    return nil
+                end
+            end
+            if field.type == 'tableindex' then
+                if field.index and field.index.type == 'string' then
+                    if field.index.finish >= position then
+                        return source
+                    else
+                        return nil
+                    end
+                end
+            end
+            return nil
+        end
+    end
+
     return source
 end
 
@@ -369,73 +404,37 @@ local function checkModule(state, word, position, results)
     if not config.get(state.uri, 'Lua.completion.autoRequire') then
         return
     end
-    local globals = util.arrayToHash(config.get(state.uri, 'Lua.diagnostics.globals'))
-    local locals = guide.getVisibleLocals(state.ast, position)
-    for uri in files.eachFile(state.uri) do
-        if uri == guide.getUri(state.ast) then
-            goto CONTINUE
-        end
-        local path = furi.decode(uri)
-        local fileName = path:match '[^/\\]*$'
-        local stemName = fileName:gsub('%..+', '')
-        if  not locals[stemName]
-        and not vm.hasGlobalSets(state.uri, 'variable', stemName)
-        and not globals[stemName]
-        and stemName:match(guide.namePatternFull)
-        and matchKey(word, stemName) then
-            local targetState = files.getState(uri)
-            if not targetState then
-                goto CONTINUE
-            end
-            local targetReturns = targetState.ast.returns
-            if not targetReturns then
-                goto CONTINUE
-            end
-            local targetSource = targetReturns[1] and targetReturns[1][1]
-            if not targetSource then
-                goto CONTINUE
-            end
-            if  targetSource.type ~= 'getlocal'
-            and targetSource.type ~= 'table'
-            and targetSource.type ~= 'function' then
-                goto CONTINUE
-            end
-            if  targetSource.type == 'getlocal'
-            and vm.getDeprecated(targetSource.node) then
-                goto CONTINUE
-            end
-            results[#results+1] = {
-                label            = stemName,
-                kind             = define.CompletionItemKind.Variable,
-                commitCharacters = { '.' },
-                command          = {
-                    title     = 'autoRequire',
-                    command   = 'lua.autoRequire',
-                    arguments = {
-                        {
-                            uri    = guide.getUri(state.ast),
-                            target = uri,
-                            name   = stemName,
-                        },
+    autoRequire.check(state, word, position, function (uri, stemName, targetSource)
+        results[#results+1] = {
+            label            = stemName,
+            kind             = define.CompletionItemKind.Variable,
+            commitCharacters = { '.' },
+            command          = {
+                title     = 'autoRequire',
+                command   = 'lua.autoRequire',
+                arguments = {
+                    {
+                        uri    = guide.getUri(state.ast),
+                        target = uri,
+                        name   = stemName,
                     },
                 },
-                id               = stack(targetSource, function (newSource) ---@async
-                    local md = markdown()
-                    md:add('md', lang.script('COMPLETION_IMPORT_FROM', ('[%s](%s)'):format(
-                        workspace.getRelativePath(uri),
-                        uri
-                    )))
-                    md:add('md', buildDesc(newSource))
-                    return {
-                        detail      = buildDetail(newSource),
-                        description = md,
-                        --additionalTextEdits = buildInsertRequire(state, originUri, stemName),
-                    }
-                end)
-            }
-        end
-        ::CONTINUE::
-    end
+            },
+            id               = stack(targetSource, function (newSource) ---@async
+                local md = markdown()
+                md:add('md', lang.script('COMPLETION_IMPORT_FROM', ('[%s](%s)'):format(
+                    workspace.getRelativePath(uri),
+                    uri
+                )))
+                md:add('md', buildDesc(newSource))
+                return {
+                    detail      = buildDetail(newSource),
+                    description = md,
+                    --additionalTextEdits = buildInsertRequire(state, originUri, stemName),
+                }
+            end)
+        }
+    end)
 end
 
 local function checkFieldFromFieldToIndex(state, name, src, parent, word, startPos, position)
@@ -444,6 +443,7 @@ local function checkFieldFromFieldToIndex(state, name, src, parent, word, startP
         or config.get(state.uri, 'Lua.runtime.unicodeName') then
             return nil
         end
+        name = ('%q'):format(name)
     end
     local textEdit, additionalTextEdits
     local startOffset = guide.positionToOffset(state, startPos)
@@ -460,12 +460,7 @@ local function checkFieldFromFieldToIndex(state, name, src, parent, word, startP
         wordStartOffset = offset - #word
     end
     local wordStartPos = guide.offsetToPosition(state, wordStartOffset)
-    local newText
-    if vm.getKeyType(src) == 'string' then
-        newText = ('[%q]'):format(name)
-    else
-        newText = ('[%s]'):format(name)
-    end
+    local newText = ('[%s]'):format(name)
     textEdit = {
         start   = wordStartPos,
         finish  = position,
@@ -542,7 +537,7 @@ local function checkFieldThen(state, name, src, word, startPos, position, parent
         textEdit = {
             start   = str.start + #str[2],
             finish  = position,
-            newText = name,
+            newText = name:sub(#str[2] + 1, - #str[2] - 1),
         }
     else
         textEdit, additionalTextEdits = checkFieldFromFieldToIndex(state, name, src, parent, word, startPos, position)
@@ -569,6 +564,10 @@ local function checkFieldOfRefs(refs, state, word, startPos, position, parent, o
     local funcs  = {}
     local count  = 0
     for _, src in ipairs(refs) do
+        if count > 100 then
+            results.incomplete = true
+            break
+        end
         local _, name = vm.viewKey(src, state.uri)
         if not name then
             goto CONTINUE
@@ -580,7 +579,7 @@ local function checkFieldOfRefs(refs, state, word, startPos, position, parent, o
         if isGlobal and locals and locals[name] then
             goto CONTINUE
         end
-        if not matchKey(word, name, count >= 100) then
+        if not matchKey(word, name:gsub([=[^['"]]=], ''), count >= 100) then
             goto CONTINUE
         end
         if not vm.isVisible(parent, src) then
@@ -606,7 +605,7 @@ local function checkFieldOfRefs(refs, state, word, startPos, position, parent, o
                     end
                 end
                 funcs[name] = true
-                if fields[name] and not guide.isSet(fields[name]) then
+                if fields[name] and not guide.isAssign(fields[name]) then
                     fields[name] = nil
                 end
                 goto CONTINUE
@@ -621,7 +620,7 @@ local function checkFieldOfRefs(refs, state, word, startPos, position, parent, o
         if vm.getDeprecated(src) then
             goto CONTINUE
         end
-        if guide.isSet(src) then
+        if guide.isAssign(src) then
             fields[name] = src
             goto CONTINUE
         end
@@ -1247,7 +1246,7 @@ local function insertEnum(state, pos, src, enums, isInArray, mark)
     or src.type == 'doc.type.boolean' then
         ---@cast src parser.object
         enums[#enums+1] = {
-            label       = vm.viewObject(src, state.uri),
+            label       = vm.getInfer(src):view(state.uri),
             description = src.comment,
             kind        = define.CompletionItemKind.EnumMember,
         }
@@ -1588,20 +1587,15 @@ local function tryCallArg(state, position, results)
 end
 
 local function tryTable(state, position, results)
-    local source = findNearestTableField(state, position)
-    if not source then
+    local tbl = findNearestTable(state, position)
+    if not tbl then
         return false
     end
-    if  source.type ~= 'table'
-    and (not source.parent or source.parent.type ~= 'table') then
+    if  tbl.type ~= 'table' then
         return
     end
     local mark = {}
     local fields = {}
-    local tbl = source
-    if source.type ~= 'table' then
-        tbl = source.parent
-    end
 
     local defs = vm.getFields(tbl)
     for _, field in ipairs(defs) do

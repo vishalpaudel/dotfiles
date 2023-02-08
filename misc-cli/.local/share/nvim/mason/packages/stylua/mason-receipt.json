@@ -1,0 +1,1 @@
+{"schema_version":"1.0","primary_source":{"type":"github_release_file","file":"https:\/\/github.com\/johnnymorganz\/stylua\/releases\/download\/v0.16.0\/stylua-macos-aarch64.zip","repo":"johnnymorganz\/stylua","release":"v0.16.0"},"links":{"bin":{"stylua":"stylua"}},"secondary_sources":[],"metrics":{"start_time":1675860406852,"completion_time":1675860410946},"name":"stylua"}

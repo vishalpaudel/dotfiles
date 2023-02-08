@@ -1,12 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
-let g:netrw_dirhist_1='/Users/vishalpaudel/.config/nvim/after/plugin'
-let g:netrw_dirhist_0='/Users/vishalpaudel/.config/nvim/after'
-let g:netrw_dirhist_9='/Users/vishalpaudel/.config/nvim'
-let g:netrw_dirhist_8='/Users/vishalpaudel/.config/nvim/plugin'
-let g:netrw_dirhist_7='/Users/vishalpaudel/.config/nvim'
-let g:netrw_dirhist_6='/Users'
-let g:netrw_dirhist_5='/Users/vishalpaudel'
-let g:netrw_dirhist_4='/Users/vishalpaudel/.config'
-let g:netrw_dirhist_3='/Users/vishalpaudel/.config/nvim'
-let g:netrw_dirhist_2='/Users/vishalpaudel/.config/nvim/plugin'
+let g:netrw_dirhistcnt =4
+let g:netrw_dirhist_4='/Users/vishalpaudel/Documents/cp/NPTEL/week-01'
+let g:netrw_dirhist_3='/Users/vishalpaudel'
+let g:netrw_dirhist_2='/opt/homebrew/Cellar/neovim/0.8.3'
+let g:netrw_dirhist_1='/Users/vishalpaudel'

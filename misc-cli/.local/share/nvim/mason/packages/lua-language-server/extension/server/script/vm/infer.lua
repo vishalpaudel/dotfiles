@@ -5,10 +5,13 @@ local guide    = require 'parser.guide'
 local vm       = require 'vm.vm'
 
 ---@class vm.infer
+---@field node vm.node
 ---@field views table<string, boolean>
----@field cachedView? string
----@field node? vm.node
 ---@field _drop table
+---@field _lastView? string
+---@field _lastViewUri? uri
+---@field _lastViewDefault? any
+---@field _subViews? string[]
 local mt = {}
 mt.__index = mt
 mt._hasTable       = false
@@ -60,7 +63,7 @@ local viewNodeSwitch;viewNodeSwitch = util.switch()
     : case 'function'
     : call(function (source, infer)
         local parent = source.parent
-        if guide.isSet(parent) then
+        if guide.isAssign(parent) then
             infer._hasFunctionDef = true
         end
         return source.type
@@ -134,11 +137,13 @@ local viewNodeSwitch;viewNodeSwitch = util.switch()
         for i, sign in ipairs(source.signs) do
             buf[i] = vm.getInfer(sign):view(uri)
         end
-        if infer._drop then
-            local node = vm.compileNode(source)
-            for c in node:eachObject() do
-                if guide.isLiteral(c) then
-                    infer._drop[c] = true
+        local node = vm.compileNode(source)
+        for c in node:eachObject() do
+            if guide.isLiteral(c) then
+                ---@cast c parser.object
+                local view = vm.getInfer(c):view(uri)
+                if view then
+                    infer._drop[view] = true
                 end
             end
         end
@@ -147,10 +152,6 @@ local viewNodeSwitch;viewNodeSwitch = util.switch()
     : case 'doc.type.table'
     : call(function (source, infer, uri)
         if #source.fields == 0 then
-            infer._hasTable = true
-            return
-        end
-        if infer._drop and infer._drop[source] then
             infer._hasTable = true
             return
         end
@@ -242,7 +243,7 @@ local viewNodeSwitch;viewNodeSwitch = util.switch()
 ---@class vm.node
 ---@field lastInfer? vm.infer
 
----@param source vm.object | vm.node
+---@param source vm.node.object | vm.node
 ---@return vm.infer
 function vm.getInfer(source)
     ---@type vm.node
@@ -291,9 +292,14 @@ function mt:_trim()
 end
 
 ---@param uri uri
----@return table<string, true>
 function mt:_eraseAlias(uri)
-    local drop = {}
+    local count = 0
+    for _ in pairs(self.views) do
+        count = count + 1
+    end
+    if count <= 1 then
+        return
+    end
     local expandAlias = config.get(uri, 'Lua.hover.expandAlias')
     for n in self.node:eachObject() do
         if n.type == 'global' and n.cate == 'type' then
@@ -304,8 +310,10 @@ function mt:_eraseAlias(uri)
             for _, set in ipairs(n:getSets(uri)) do
                 if set.type == 'doc.alias' then
                     if expandAlias then
-                        drop[n.name] = true
-                        local newInfer = {}
+                        self._drop[n.name] = true
+                        local newInfer = setmetatable({
+                            _drop = {},
+                        }, mt)
                         for _, ext in ipairs(set.extends.types) do
                             viewNodeSwitch(ext.type, ext, newInfer, uri)
                         end
@@ -316,7 +324,7 @@ function mt:_eraseAlias(uri)
                         for _, ext in ipairs(set.extends.types) do
                             local view = viewNodeSwitch(ext.type, ext, {}, uri)
                             if view and view ~= n.name then
-                                drop[view] = true
+                                self._drop[view] = true
                             end
                         end
                     end
@@ -326,7 +334,6 @@ function mt:_eraseAlias(uri)
             ::CONTINUE::
         end
     end
-    return drop
 end
 
 ---@param uri uri
@@ -387,20 +394,29 @@ end
 ---@param default? string
 ---@return string
 function mt:view(uri, default)
+    if  self._lastView
+    and self._lastViewUri == uri
+    and self._lastViewDefault == default then
+        return self._lastView
+    end
+    self._lastViewUri = uri
+    self._lastViewDefault = default
+
     self:_computeViews(uri)
 
     if self.views['any'] then
+        self._lastView = 'any'
         return 'any'
     end
 
-    local drop
     if self._hasClass then
-        drop = self:_eraseAlias(uri)
+        self:_eraseAlias(uri)
     end
 
     local array = {}
+    self._subViews = array
     for view in pairs(self.views) do
-        if not drop or not drop[view] then
+        if not self._drop[view] then
             array[#array+1] = view
         end
     end
@@ -432,13 +448,23 @@ function mt:view(uri, default)
     end
 
     if self.node:isOptional() then
-        if max > 1 then
-            view = '(' .. view .. ')?'
+        if #array == 0 then
+            view = 'nil'
         else
-            view = view .. '?'
+            if max > 1
+            or view:find(guide.notNamePattern .. guide.namePattern .. '$') then
+                view = '(' .. view .. ')?'
+            else
+                view = view .. '?'
+            end
         end
     end
 
+    if #view > 200 then
+        view = view:sub(1, 180) .. '...(too long)...' .. view:sub(-10)
+    end
+
+    self._lastView = view
     return view
 end
 
@@ -448,21 +474,11 @@ function mt:eachView(uri)
     return next, self.views
 end
 
----@param other vm.infer
----@return vm.infer
-function mt:merge(other)
-    if self == vm.NULL then
-        return other
-    end
-    if other == vm.NULL then
-        return self
-    end
-
-    local infer = setmetatable({
-        node  = vm.createNode(self.node, other.node),
-    }, mt)
-
-    return infer
+---@param uri uri
+---@return string[]
+function mt:getSubViews(uri)
+    self:view(uri)
+    return self._subViews
 end
 
 ---@return string?
@@ -477,7 +493,12 @@ function mt:viewLiterals()
         or n.type == 'number'
         or n.type == 'integer'
         or n.type == 'boolean' then
-            local literal = util.viewLiteral(n[1])
+            local literal
+            if n.type == 'string' then
+                literal = util.viewString(n[1], n[2])
+            else
+                literal = util.viewLiteral(n[1])
+            end
             if literal and not mark[literal] then
                 literals[#literals+1] = literal
                 mark[literal] = true
@@ -525,7 +546,10 @@ end
 ---@param uri uri
 ---@return string?
 function vm.viewObject(source, uri)
-    return viewNodeSwitch(source.type, source, {}, uri)
+    local infer = setmetatable({
+        _drop = {},
+    }, mt)
+    return viewNodeSwitch(source.type, source, infer, uri)
 end
 
 ---@param source parser.object
@@ -537,23 +561,18 @@ function vm.viewKey(source, uri)
         if #source.types == 1 then
             return vm.viewKey(source.types[1], uri)
         else
-            local key = vm.viewObject(source, uri)
+            local key = vm.getInfer(source):view(uri)
             return '[' .. key .. ']'
         end
     end
-    if source.type == 'tableindex' then
+    if source.type == 'tableindex'
+    or source.type == 'setindex' then
         local index = source.index
-        local name = vm.getKeyName(index)
+        local name = vm.getInfer(index):viewLiterals()
         if not name then
             return nil
         end
-        local key
-        if index.type == 'string' then
-            key = util.viewString(name, index[2])
-        else
-            key = util.viewLiteral(name)
-        end
-        return ('[%s]'):format(key), name
+        return ('[%s]'):format(name), name
     end
     if source.type == 'tableexp' then
         return ('[%d]'):format(source.tindex), source.tindex

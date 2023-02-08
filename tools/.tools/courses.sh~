@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+# CDs into Onedrive../Sophomore if username is vishalpaudel
+
+shopt -s expand_aliases
+source ~/.aliases
+
+function courses()
+{
+    if [[ $2 == "l"? ]]; then
+        eval $2 ~/'OneDrive - Plaksha University/Sophomore'/"$1"* && return 0
+        return -1
+    elif [[ $1 ]]; then
+        if [[ $2 ]]; then
+            cd ~/'OneDrive - Plaksha University/Sophomore'/"$1"*/"$2"* && return 0
+        else
+            cd ~/'OneDrive - Plaksha University/Sophomore'/"$1"* && return 0
+        fi
+    fi
+
+    return -1
+}

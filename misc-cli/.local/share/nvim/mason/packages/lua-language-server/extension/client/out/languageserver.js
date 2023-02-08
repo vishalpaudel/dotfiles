@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.reportAPIDoc = exports.deactivate = exports.activate = exports.defaultClient = void 0;
+exports.getConfig = exports.setConfig = exports.reportAPIDoc = exports.deactivate = exports.activate = exports.defaultClient = void 0;
 const path = require("path");
 const os = require("os");
 const fs = require("fs");
@@ -41,6 +41,28 @@ function registerCustomCommands(context) {
             }
         }
     }));
+    context.subscriptions.push(vscode_1.commands.registerCommand('lua.exportDocument', () => __awaiter(this, void 0, void 0, function* () {
+        if (!exports.defaultClient) {
+            return;
+        }
+        ;
+        let outputs = yield vscode.window.showOpenDialog({
+            defaultUri: vscode.Uri.joinPath(context.extensionUri, 'server', 'log'),
+            openLabel: "Export to this folder",
+            canSelectFiles: false,
+            canSelectFolders: true,
+            canSelectMany: false,
+        });
+        let output = outputs === null || outputs === void 0 ? void 0 : outputs[0];
+        if (!output) {
+            return;
+        }
+        ;
+        exports.defaultClient.client.sendRequest(node_1.ExecuteCommandRequest.type, {
+            command: 'lua.exportDocument',
+            arguments: [output.toString()],
+        });
+    })));
 }
 class LuaClient {
     constructor(context, documentSelector) {
@@ -145,7 +167,7 @@ function activate(context) {
     registerCustomCommands(context);
     function didOpenTextDocument(document) {
         // We are only interested in language mode text
-        if (document.languageId !== 'lua' || (document.uri.scheme !== 'file' && document.uri.scheme !== 'untitled')) {
+        if (document.languageId !== 'lua') {
             return;
         }
         // Untitled files go to a default client.
@@ -180,4 +202,45 @@ function reportAPIDoc(params) {
     });
 }
 exports.reportAPIDoc = reportAPIDoc;
+function setConfig(changes) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (!exports.defaultClient) {
+            return false;
+        }
+        let params = [];
+        for (const change of changes) {
+            params.push({
+                action: change.action,
+                prop: (change.action == "prop") ? change.prop : undefined,
+                key: change.key,
+                value: change.value,
+                uri: change.uri.toString(),
+                global: change.global,
+            });
+        }
+        ;
+        yield exports.defaultClient.client.sendRequest(node_1.ExecuteCommandRequest.type, {
+            command: 'lua.setConfig',
+            arguments: params,
+        });
+        return true;
+    });
+}
+exports.setConfig = setConfig;
+function getConfig(key, uri) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (!exports.defaultClient) {
+            return undefined;
+        }
+        let result = yield exports.defaultClient.client.sendRequest(node_1.ExecuteCommandRequest.type, {
+            command: 'lua.getConfig',
+            arguments: [{
+                    uri: uri.toString(),
+                    key: key,
+                }]
+        });
+        return result;
+    });
+}
+exports.getConfig = getConfig;
 //# sourceMappingURL=languageserver.js.map

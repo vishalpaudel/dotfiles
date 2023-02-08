@@ -9,13 +9,12 @@ local fsu     = require 'fs-utility'
 local define  = require "proto.define"
 local files   = require 'files'
 local await   = require 'await'
-local timer   = require 'timer'
 local encoder = require 'encoder'
 local ws      = require 'workspace.workspace'
 local scope   = require 'workspace.scope'
 local inspect = require 'inspect'
+local jsonb   = require 'json-beautify'
 local jsonc   = require 'jsonc'
-local json    = require 'json'
 
 local m = {}
 
@@ -189,10 +188,14 @@ local function compileSingleMetaDoc(uri, script, metaLang, status)
     if not suc then
         log.debug('MiddleScript:\n', middleScript)
     end
+    local text = table.concat(compileBuf)
     if disable and status == 'default' then
-        return nil
+        return text, false
     end
-    return table.concat(compileBuf)
+    if status == 'disable' then
+        return text, false
+    end
+    return text, true
 end
 
 local function loadMetaLocale(langID, result)
@@ -223,11 +226,8 @@ local function initBuiltIn(uri)
         loadMetaLocale(langID, metaLang)
     end
 
-    if scp:get('metaPath') == metaPath:string() then
-        log.debug('Has meta path, skip:', metaPath:string())
-        return
-    end
-    scp:set('metaPath', metaPath:string())
+    local metaPaths = {}
+    scp:set('metaPaths', metaPaths)
     local suc = xpcall(function ()
         if not fs.exists(metaPath) then
             fs.create_directories(metaPath)
@@ -242,13 +242,10 @@ local function initBuiltIn(uri)
     for libName, status in pairs(define.BuiltIn) do
         status = config.get(uri, 'Lua.runtime.builtin')[libName] or status
         log.debug('Builtin status:', libName, status)
-        if status == 'disable' then
-            goto CONTINUE
-        end
 
         ---@type fs.path
         local libPath = templateDir / (libName .. '.lua')
-        local metaDoc = compileSingleMetaDoc(uri, fsu.loadFile(libPath), metaLang, status)
+        local metaDoc, include = compileSingleMetaDoc(uri, fsu.loadFile(libPath), metaLang, status)
         if metaDoc then
             metaDoc = encoder.encode(encoding, metaDoc, 'auto')
 
@@ -259,13 +256,17 @@ local function initBuiltIn(uri)
 
             local ok, err = out:saveFile(outputLibName, metaDoc)
             if not ok then
-                log.debug("Save Meta File:", err)
+                log.debug("Save Meta File Failed:", err)
                 goto CONTINUE
             end
 
             local outputPath = metaPath / outputLibName
             m.metaPaths[outputPath:string()] = true
             log.debug('Meta path:', outputPath:string())
+
+            if include then
+                metaPaths[#metaPaths+1] = outputPath:string()
+            end
         end
         ::CONTINUE::
     end
@@ -284,7 +285,7 @@ local function loadSingle3rdConfigFromJson(libraryDir)
         return nil
     end
 
-    local suc, cfg = xpcall(jsonc.decode, function (err)
+    local suc, cfg = xpcall(jsonc.decode_jsonc, function (err)
         log.error('Decode config.json failed at:', libraryDir:string(), err)
     end, configText)
     if not suc then
@@ -339,7 +340,7 @@ local function loadSingle3rdConfig(libraryDir)
         if not cfg then
             return
         end
-        local jsonbuf = json.beautify(cfg)
+        local jsonbuf = jsonb.beautify(cfg)
         client.requestMessage('Info', lang.script.WINDOW_CONFIG_LUA_DEPRECATED, {
             lang.script.WINDOW_CONVERT_CONFIG_LUA,
         }, function (action, index)
@@ -542,6 +543,7 @@ local function check3rdByWords(uri, configs)
             for _, word in ipairs(cfg.words) do
                 await.delay()
                 if wholeMatch(text, word) then
+                    log.info('Found 3rd library by word: ', word, uri, library, inspect(config.get(uri, 'Lua.workspace.library')))
                     ---@async
                     await.call(function ()
                         askFor3rd(uri, cfg)
@@ -570,9 +572,14 @@ local function check3rdByFileName(uri, configs)
             if hasAsked[cfg.name] then
                 goto CONTINUE
             end
+            local library = ('%s/library'):format(cfg.dirname)
+            if util.arrayHas(config.get(uri, 'Lua.workspace.library'), library) then
+                goto CONTINUE
+            end
             for _, filename in ipairs(cfg.files) do
                 await.delay()
                 if wholeMatch(path, filename) then
+                    log.info('Found 3rd library by filename: ', filename, uri, library, inspect(config.get(uri, 'Lua.workspace.library')))
                     ---@async
                     await.call(function ()
                         askFor3rd(uri, cfg)

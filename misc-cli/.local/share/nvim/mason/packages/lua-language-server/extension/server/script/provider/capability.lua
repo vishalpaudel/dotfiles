@@ -7,6 +7,7 @@ local define     = require 'proto.define'
 require 'provider.semantic-tokens'
 require 'provider.formatting'
 require 'provider.inlay-hint'
+require 'provider.code-lens'
 
 local m = {}
 
@@ -39,6 +40,9 @@ local function resolve(t)
             t[k] = v:gsub('%{(.-)%}', function (key)
                 return m.resolvedMap[key] or ''
             end)
+        end
+        if type(v) == 'function' then
+            t[k] = v()
         end
     end
 end
