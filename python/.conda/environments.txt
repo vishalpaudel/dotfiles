@@ -1,1 +1,1 @@
-/opt/homebrew/anaconda3
+/opt/homebrew/Caskroom/miniconda/base

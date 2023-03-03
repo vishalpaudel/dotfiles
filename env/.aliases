@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # echo ALIAS FILE
 
-shopt -s expand_aliases
+# shopt -s expand_aliases
 
 # MY SCRIPTS -------------------------------------------
 for file in ~/.tools/*.sh
@@ -90,7 +90,6 @@ fi
 
 
 # OTHER ALIASES ----------------------------------------------
-alias g++="g++ -pedantic-errors -Wall -Weffc++ -Wextra -Wsign-conversion -Werror -std=c++17"
 alias reload="source ~/.bashrc"
 alias crontab="VIM_CRONTAB=true crontab"
 

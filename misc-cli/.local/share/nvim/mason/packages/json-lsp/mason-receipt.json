@@ -1,1 +1,0 @@
-{"schema_version":"1.0","primary_source":{"type":"npm","package":"vscode-langservers-extracted"},"links":{"bin":{"vscode-json-language-server":"node_modules\/.bin\/vscode-json-language-server"}},"secondary_sources":[],"metrics":{"start_time":1675860409603,"completion_time":1675860415315},"name":"json-lsp"}

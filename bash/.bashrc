@@ -32,12 +32,12 @@ function git_branch() {
 }
 
 ## Set the prompt.
-# function bash_prompt(){
-#     error_code=$?
-#     # PS1=${wht}'${VIRTUAL_ENV##*/} '${blu}'$(git_branch)'${ylw}' $error_code'${pur}' \W'${red}' >'${ylw}'>'${cyn}'> '${clr}
-#     PS1=${ylw}'$error_code'${pur}' \W'${red}' >'${ylw}'>'${cyn}'> '${clr}
-# }
-# PROMPT_COMMAND=bash_prompt
+function bash_prompt(){
+    error_code=$?
+    # PS1=${wht}'${VIRTUAL_ENV##*/} '${blu}'$(git_branch)'${ylw}' $error_code'${pur}' \W'${red}' >'${ylw}'>'${cyn}'> '${clr}
+    PS1=${ylw}'$error_code'${pur}' \W'${red}' >'${ylw}'>'${cyn}'> '${clr}
+}
+PROMPT_COMMAND=bash_prompt
 
 
 # ALIASES ----------------------------------------------
@@ -52,9 +52,9 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 # BLESH
-# [[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --noattach
-# [ -f ~/.blerc ] && source ~/.blerc
-# [[ ${BLE_VERSION-} ]] && ble-attach
+[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --noattach
+ [ -f ~/.blerc ] && source ~/.blerc
+ [[ ${BLE_VERSION-} ]] && ble-attach
 
 # ANACONDA
 # >>> conda initialize >>>

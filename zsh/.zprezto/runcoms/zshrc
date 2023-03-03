@@ -1,0 +1,103 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+
+
+# Tmuxinator completions
+if [ -f ~/.bin/tmuxinator.zsh ]; then
+    source ~/.bin/tmuxinator.zsh
+fi
+
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+export COMP_KNOWN_HOSTS_WITH_HOSTFILE=""
+
+
+
+# bindkey -v
+# bindkey -M viins '\e.' insert-last-word
+# bindkey "^R" history-incremental-search-backward
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000000000
+export SAVEHIST=$HISTSIZE
+setopt EXTENDED_HISTORY
+setopt HIST_IGNORE_SPACE 
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+
+# Remap clear-screen since ^L is taken by tmux-vim
+bindkey "^O" clear-screen
+bindkey "^L" end-of-line
+
+# Disable right prompt for lecture recording
+# RPROMPT=
+
+# Alt left/right moves words
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
+# Alt up/down goes to beggining/end of line
+bindkey "^[[1;3A" beginning-of-line
+bindkey "^[[1;3B" end-of-line
+
+if [ -f $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh ]; then
+  source $HOME/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+fi
+
+# https://github.com/marlonrichert/zsh-autocomplete
+# if [ -f $HOME/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]; then
+#   source $HOME/.zsh/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+# fi
+# typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/opt/homebrew/Caskroom/miniconda/base/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh" ]; then
+#         . "/opt/homebrew/Caskroom/miniconda/base/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/opt/homebrew/Caskroom/miniconda/base/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# <<< conda initialize <<<
+
+
+# Environment setup
+if [ -f ~/.env ]; then
+    source ~/.env
+fi
+
+# ALIASES
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
+
+set -o vi
+

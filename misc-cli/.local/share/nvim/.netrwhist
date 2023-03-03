@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
-let g:netrw_dirhist_5='/Users/vishalpaudel/Library/CloudStorage/OneDrive-PlakshaUniversity/Sophomore/AI2001 - Introduction to Data Mining & Pattern Recognition/Lab/Week-03'
-let g:netrw_dirhist_4='/Users/vishalpaudel/Documents/cp/NPTEL/week-01'
-let g:netrw_dirhist_3='/Users/vishalpaudel'
-let g:netrw_dirhist_2='/opt/homebrew/Cellar/neovim/0.8.3'
-let g:netrw_dirhist_1='/Users/vishalpaudel'
