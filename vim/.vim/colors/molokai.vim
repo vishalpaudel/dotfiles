@@ -1,276 +1,466 @@
-" Vim color file
+" File:       monokai.vim
+" Maintainer: Crusoe Xia (crusoexia)
+" URL:        https://github.com/crusoexia/vim-monokai
+" License:    MIT
 "
-" Author: Tomas Restrepo <tomas@winterdom.com>
-" https://github.com/tomasr/molokai
-"
-" Note: Based on the Monokai theme for TextMate
-" by Wimer Hazenberg and its darker variant
-" by Hamish Stuart Macpherson
-"
+" The colour palette is from http://www.colourlovers.com/
 
+" Initialisation
+" --------------
+
+if !has("gui_running") && &t_Co < 256
+  finish
+endif
+
+if ! exists("g:monokai_gui_italic")
+    let g:monokai_gui_italic = 0
+endif
+
+if ! exists("g:monokai_term_italic")
+    let g:monokai_term_italic = 0
+endif
+
+let g:monokai_termcolors = 256 " does not support 16 color term right now.
+
+set background=dark
 hi clear
 
-if version > 580
-    " no guarantees for version 5.8 and below, but this makes it stop
-    " complaining
-    hi clear
-    if exists("syntax_on")
-        syntax reset
-    endif
+if exists("syntax_on")
+  syntax reset
 endif
-let g:colors_name="molokai"
 
-if exists("g:molokai_original")
-    let s:molokai_original = g:molokai_original
+let colors_name = "monokai"
+
+function! s:h(group, style)
+  let s:ctermformat = "NONE"
+  let s:guiformat = "NONE"
+  if has_key(a:style, "format")
+    let s:ctermformat = a:style.format
+    let s:guiformat = a:style.format
+  endif
+  if g:monokai_term_italic == 0
+    let s:ctermformat = substitute(s:ctermformat, ",italic", "", "")
+    let s:ctermformat = substitute(s:ctermformat, "italic,", "", "")
+    let s:ctermformat = substitute(s:ctermformat, "italic", "", "")
+  endif
+  if g:monokai_gui_italic == 0
+    let s:guiformat = substitute(s:guiformat, ",italic", "", "")
+    let s:guiformat = substitute(s:guiformat, "italic,", "", "")
+    let s:guiformat = substitute(s:guiformat, "italic", "", "")
+  endif
+  if g:monokai_termcolors == 16
+    let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm16 : "NONE")
+    let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm16 : "NONE")
+  else
+    let l:ctermfg = (has_key(a:style, "fg") ? a:style.fg.cterm : "NONE")
+    let l:ctermbg = (has_key(a:style, "bg") ? a:style.bg.cterm : "NONE")
+  end
+  execute "highlight" a:group
+    \ "guifg="   (has_key(a:style, "fg")      ? a:style.fg.gui   : "NONE")
+    \ "guibg="   (has_key(a:style, "bg")      ? a:style.bg.gui   : "NONE")
+    \ "guisp="   (has_key(a:style, "sp")      ? a:style.sp.gui   : "NONE")
+    \ "gui="     (!empty(s:guiformat) ? s:guiformat   : "NONE")
+    \ "ctermfg=" . l:ctermfg
+    \ "ctermbg=" . l:ctermbg
+    \ "cterm="   (!empty(s:ctermformat) ? s:ctermformat   : "NONE")
+endfunction
+
+" Palettes
+" --------
+
+let s:white       = { "gui": "#E8E8E3", "cterm": "252" }
+let s:white2      = { "gui": "#d8d8d3", "cterm": "250" }
+let s:black       = { "gui": "#272822", "cterm": "234" }
+let s:lightblack  = { "gui": "#2D2E27", "cterm": "235" }
+let s:lightblack2 = { "gui": "#383a3e", "cterm": "236" }
+let s:lightblack3 = { "gui": "#3f4145", "cterm": "237" }
+let s:darkblack   = { "gui": "#211F1C", "cterm": "233" }
+let s:grey        = { "gui": "#8F908A", "cterm": "243" }
+let s:lightgrey   = { "gui": "#575b61", "cterm": "237" }
+let s:darkgrey    = { "gui": "#64645e", "cterm": "239" }
+let s:warmgrey    = { "gui": "#75715E", "cterm": "59" }
+
+let s:pink        = { "gui": "#F92772", "cterm": "197" }
+let s:green       = { "gui": "#A6E22D", "cterm": "148" }
+let s:aqua        = { "gui": "#66d9ef", "cterm": "81" }
+let s:yellow      = { "gui": "#E6DB74", "cterm": "186" }
+let s:orange      = { "gui": "#FD9720", "cterm": "208" }
+let s:purple      = { "gui": "#ae81ff", "cterm": "141" }
+let s:red         = { "gui": "#e73c50", "cterm": "196" }
+let s:purered     = { "gui": "#ff0000", "cterm": "52" }
+let s:darkred     = { "gui": "#5f0000", "cterm": "52" }
+
+let s:addfg       = { "gui": "#d7ffaf", "cterm": "193" }
+let s:addbg       = { "gui": "#5f875f", "cterm": "65" }
+let s:delfg       = { "gui": "#ff8b8b", "cterm": "210" }
+let s:delbg       = { "gui": "#f75f5f", "cterm": "124" }
+let s:changefg    = { "gui": "#d7d7ff", "cterm": "189" }
+let s:changebg    = { "gui": "#5f5f87", "cterm": "60" }
+
+let s:cyan        = { "gui": "#A1EFE4" }
+let s:br_green    = { "gui": "#9EC400" }
+let s:br_yellow   = { "gui": "#E7C547" }
+let s:br_blue     = { "gui": "#7AA6DA" }
+let s:br_purple   = { "gui": "#B77EE0" }
+let s:br_cyan     = { "gui": "#54CED6" }
+let s:br_white    = { "gui": "#FFFFFF" }
+
+" Highlighting
+" ------------
+
+" editor
+call s:h("Normal",        { "fg": s:white,      "bg": s:black })
+call s:h("ColorColumn",   {                     "bg": s:lightblack })
+call s:h("Cursor",        { "fg": s:black,      "bg": s:white })
+call s:h("CursorColumn",  {                     "bg": s:lightblack2 })
+call s:h("CursorLine",    {                     "bg": s:lightblack2 })
+call s:h("NonText",       { "fg": s:lightgrey })
+call s:h("Visual",        {                     "bg": s:lightgrey })
+call s:h("Search",        { "fg": s:black,      "bg": s:yellow })
+call s:h("MatchParen",    { "fg": s:purple,                           "format": "underline,bold" })
+call s:h("Question",      { "fg": s:yellow })
+call s:h("ModeMsg",       { "fg": s:yellow })
+call s:h("MoreMsg",       { "fg": s:yellow })
+call s:h("ErrorMsg",      { "fg": s:black,      "bg": s:red,          "format": "standout" })
+call s:h("WarningMsg",    { "fg": s:red })
+call s:h("VertSplit",     { "fg": s:darkgrey,   "bg": s:darkblack })
+call s:h("LineNr",        { "fg": s:grey,       "bg": s:lightblack })
+call s:h("CursorLineNr",  { "fg": s:orange,     "bg": s:lightblack })
+call s:h("SignColumn",    {                     "bg": s:lightblack })
+
+" statusline
+call s:h("StatusLine",    { "fg": s:black,      "bg": s:lightgrey })
+call s:h("StatusLineNC",  { "fg": s:lightgrey,  "bg": s:black })
+call s:h("TabLine",       { "fg": s:lightgrey,  "bg": s:lightblack })
+call s:h("TabLineSel",    { "fg": s:darkblack,  "bg": s:warmgrey,     "format": "bold" })
+call s:h("TabLineFill",   { "bg": s:lightblack })
+call s:h("User1",         { "fg": s:yellow,     "bg": s:lightgrey,    "format": "bold" })
+call s:h("User2",         { "fg": s:orange,     "bg": s:lightgrey,    "format": "bold" })
+call s:h("User3",         { "fg": s:purple,     "bg": s:lightgrey,    "format": "bold" })
+call s:h("User4",         { "fg": s:aqua,       "bg": s:lightgrey,    "format": "bold" })
+
+" spell
+call s:h("SpellBad",      { "fg": s:red,                              "format": "underline" })
+call s:h("SpellCap",      { "fg": s:purple,                           "format": "underline" })
+call s:h("SpellRare",     { "fg": s:aqua,                             "format": "underline" })
+call s:h("SpellLocal",    { "fg": s:pink,                             "format": "underline" })
+
+" misc
+call s:h("SpecialKey",    { "fg": s:pink })
+call s:h("Title",         { "fg": s:yellow })
+call s:h("Directory",     { "fg": s:aqua })
+
+" diff
+call s:h("DiffAdd",       { "fg": s:addfg,      "bg": s:addbg })
+call s:h("DiffDelete",    { "fg": s:delfg,      "bg": s:delbg })
+call s:h("DiffChange",    { "fg": s:changefg,   "bg": s:changebg })
+call s:h("DiffText",      { "fg": s:black,      "bg": s:aqua })
+
+" fold
+call s:h("Folded",        { "fg": s:warmgrey,   "bg": s:darkblack })
+call s:h("FoldColumn",    {                     "bg": s:darkblack })
+"        Incsearch"
+
+" popup menu
+call s:h("Pmenu",         { "fg": s:white2,     "bg": s:lightblack3 })
+call s:h("PmenuSel",      { "fg": s:aqua,       "bg": s:lightblack3,        "format": "reverse,bold" })
+call s:h("PmenuThumb",    { "fg": s:lightblack, "bg": s:grey })
+"        PmenuSbar"
+
+" Generic Syntax Highlighting
+" ---------------------------
+
+call s:h("Constant",      { "fg": s:purple })
+call s:h("Number",        { "fg": s:purple })
+call s:h("Float",         { "fg": s:purple })
+call s:h("Boolean",       { "fg": s:purple })
+call s:h("Character",     { "fg": s:yellow })
+call s:h("String",        { "fg": s:yellow })
+
+call s:h("Type",          { "fg": s:aqua })
+call s:h("Structure",     { "fg": s:aqua })
+call s:h("StorageClass",  { "fg": s:aqua })
+call s:h("Typedef",       { "fg": s:aqua })
+
+call s:h("Identifier",    { "fg": s:green })
+call s:h("Function",      { "fg": s:green })
+
+call s:h("Statement",     { "fg": s:pink })
+call s:h("Operator",      { "fg": s:pink })
+call s:h("Label",         { "fg": s:pink })
+call s:h("Keyword",       { "fg": s:pink })
+"        Conditional"
+"        Repeat"
+"        Exception"
+
+call s:h("PreProc",       { "fg": s:green })
+call s:h("Include",       { "fg": s:pink })
+call s:h("Define",        { "fg": s:pink })
+call s:h("Macro",         { "fg": s:green })
+call s:h("PreCondit",     { "fg": s:green })
+
+call s:h("Special",       { "fg": s:purple })
+call s:h("SpecialChar",   { "fg": s:pink })
+call s:h("Delimiter",     { "fg": s:pink })
+call s:h("SpecialComment",{ "fg": s:aqua })
+call s:h("Tag",           { "fg": s:pink })
+"        Debug"
+
+call s:h("Todo",          { "fg": s:orange,   "format": "bold,italic" })
+call s:h("Comment",       { "fg": s:warmgrey, "format": "italic" })
+
+call s:h("Underlined",    { "fg": s:green })
+call s:h("Ignore",        {})
+call s:h("Error",         { "fg": s:red, "bg": s:darkred })
+
+" NerdTree
+" --------
+
+call s:h("NERDTreeOpenable",        { "fg": s:yellow })
+call s:h("NERDTreeClosable",        { "fg": s:yellow })
+call s:h("NERDTreeHelp",            { "fg": s:yellow })
+call s:h("NERDTreeBookmarksHeader", { "fg": s:pink })
+call s:h("NERDTreeBookmarksLeader", { "fg": s:black })
+call s:h("NERDTreeBookmarkName",    { "fg": s:yellow })
+call s:h("NERDTreeCWD",             { "fg": s:pink })
+call s:h("NERDTreeUp",              { "fg": s:white })
+call s:h("NERDTreeDirSlash",        { "fg": s:grey })
+call s:h("NERDTreeDir",             { "fg": s:grey })
+
+" Syntastic
+" ---------
+
+hi! link SyntasticErrorSign Error
+call s:h("SyntasticWarningSign",    { "fg": s:lightblack, "bg": s:orange })
+
+" coc
+" ---
+
+hi! link CocErrorSign Error
+call s:h("CocErrorHighlight",       { "fg": s:red, "format": "underline" })
+call s:h("CocErrorFloat",           { "fg": s:purered, "bg": s:lightblack3 })
+
+call s:h("CocWarningSign",          { "fg": s:orange, "bg": s:lightblack })
+call s:h("CocWarningHighlight",     { "format": "underline" })
+call s:h("CocWarningFloat",         { "fg": s:orange, "bg": s:lightblack3 })
+
+call s:h("CocInfoSign",             { "fg": s:yellow, "bg": s:lightblack3 })
+call s:h("CocInfoHighlight",        { "format": "underline" })
+
+call s:h("CocHintSign",             { "fg": s:white, "bg": s:lightblack3 })
+call s:h("CocHintHighlight",        { "format": "underline" })
+
+" Language highlight
+" ------------------
+
+" Java properties
+call s:h("jpropertiesIdentifier",   { "fg": s:pink })
+
+" Vim command
+call s:h("vimCommand",              { "fg": s:pink })
+
+" Javascript
+call s:h("jsClassKeyword",      { "fg": s:aqua, "format": "italic" })
+call s:h("jsGlobalObjects",     { "fg": s:aqua, "format": "italic" })
+call s:h("jsFuncName",          { "fg": s:green })
+call s:h("jsThis",              { "fg": s:orange, "format": "italic" })
+call s:h("jsObjectKey",         { "fg": s:white })
+call s:h("jsFunctionKey",       { "fg": s:green })
+call s:h("jsPrototype",         { "fg": s:aqua })
+call s:h("jsExceptions",        { "fg": s:aqua })
+call s:h("jsFutureKeys",        { "fg": s:aqua })
+call s:h("jsBuiltins",          { "fg": s:aqua })
+call s:h("jsStatic",            { "fg": s:aqua })
+call s:h("jsSuper",             { "fg": s:orange, "format": "italic" })
+call s:h("jsFuncArgRest",       { "fg": s:purple, "format": "italic" })
+call s:h("jsFuncArgs",          { "fg": s:orange, "format": "italic" })
+call s:h("jsStorageClass",      { "fg": s:aqua, "format": "italic" })
+call s:h("jsDocTags",           { "fg": s:aqua,   "format": "italic" })
+call s:h("jsFunction",          { "fg": s:aqua,   "format": "italic" })
+
+" Typescript
+call s:h("typescriptBraces",              { "fg": s:white })
+call s:h("typescriptParens",              { "fg": s:white })
+call s:h("typescriptOperator",            { "fg": s:pink })
+call s:h("typescriptEndColons",           { "fg": s:white })
+call s:h("typescriptModule",              { "fg": s:aqua })
+call s:h("typescriptPredefinedType",      { "fg": s:aqua })
+call s:h("typescriptImport",              { "fg": s:pink })
+call s:h("typescriptExport",              { "fg": s:pink })
+call s:h("typescriptIdentifier",          { "fg": s:orange, "format": "italic" })
+call s:h("typescriptVariable",            { "fg": s:aqua })
+call s:h("typescriptCastKeyword",         { "fg": s:pink })
+call s:h("typescriptAmbientDeclaration",  { "fg": s:pink })
+call s:h("typescriptTestGlobal",          { "fg": s:pink })
+call s:h("typescriptFuncKeyword",         { "fg": s:aqua })
+call s:h("typescriptFuncTypeArrow",       { "fg": s:aqua })
+call s:h("typescriptFuncType",            { "fg": s:orange, "format": "italic" })
+call s:h("typescriptFuncName",            { "fg": s:green })
+call s:h("typescriptArrowFuncArg",        { "fg": s:orange, "format": "italic" })
+call s:h("typescriptCall",                { "fg": s:orange, "format": "italic" })
+call s:h("typescriptClassKeyword",        { "fg": s:aqua,   "format": "italic" })
+call s:h("typescriptClassName",           { "fg": s:white })
+call s:h("typescriptClassHeritage",       { "fg": s:white })
+call s:h("typescriptInterfaceKeyword",    { "fg": s:aqua,   "format": "italic" })
+call s:h("typescriptInterfaceName",       { "fg": s:white })
+call s:h("typescriptObjectLabel",         { "fg": s:green })
+call s:h("typescriptMember",              { "fg": s:green })
+call s:h("typescriptTypeReference",       { "fg": s:purple, "format": "italic" })
+call s:h("typescriptTypeParameter",       { "fg": s:purple, "format": "italic" })
+call s:h("typescriptOptionalMark",        { "fg": s:pink })
+call s:h("tsxAttrib",                     { "fg": s:green })
+call s:h("tsxTagName",                    { "fg": s:pink })
+
+" Dart
+call s:h("dartStorageClass",    { "fg": s:pink })
+call s:h("dartExceptions",      { "fg": s:pink })
+call s:h("dartConditional",     { "fg": s:pink })
+call s:h("dartRepeat",          { "fg": s:pink })
+call s:h("dartTypedef",         { "fg": s:pink })
+call s:h("dartKeyword",         { "fg": s:pink })
+call s:h("dartConstant",        { "fg": s:purple })
+call s:h("dartBoolean",         { "fg": s:purple })
+call s:h("dartCoreType",        { "fg": s:aqua })
+call s:h("dartType",            { "fg": s:aqua })
+
+" HTML
+call s:h("htmlTag",             { "fg": s:white })
+call s:h("htmlEndTag",          { "fg": s:white })
+call s:h("htmlTagName",         { "fg": s:pink })
+call s:h("htmlArg",             { "fg": s:green })
+call s:h("htmlSpecialChar",     { "fg": s:purple })
+
+" XML
+call s:h("xmlTag",              { "fg": s:pink })
+call s:h("xmlEndTag",           { "fg": s:pink })
+call s:h("xmlTagName",          { "fg": s:orange })
+call s:h("xmlAttrib",           { "fg": s:green })
+
+" JSX
+call s:h("jsxTag",              { "fg": s:white })
+call s:h("jsxCloseTag",         { "fg": s:white })
+call s:h("jsxCloseString",      { "fg": s:white })
+call s:h("jsxPunct",            { "fg": s:white })
+call s:h("jsxClosePunct",       { "fg": s:white })
+call s:h("jsxTagName",          { "fg": s:pink })
+call s:h("jsxComponentName",    { "fg": s:pink })
+call s:h("jsxAttrib",           { "fg": s:green })
+call s:h("jsxEqual",            { "fg": s:white })
+call s:h("jsxBraces",           { "fg": s:white })
+
+" CSS
+call s:h("cssProp",             { "fg": s:yellow })
+call s:h("cssUIAttr",           { "fg": s:yellow })
+call s:h("cssFunctionName",     { "fg": s:aqua })
+call s:h("cssColor",            { "fg": s:purple })
+call s:h("cssPseudoClassId",    { "fg": s:purple })
+call s:h("cssClassName",        { "fg": s:green })
+call s:h("cssValueLength",      { "fg": s:purple })
+call s:h("cssCommonAttr",       { "fg": s:pink })
+call s:h("cssBraces" ,          { "fg": s:white })
+call s:h("cssClassNameDot",     { "fg": s:pink })
+call s:h("cssURL",              { "fg": s:orange, "format": "underline,italic" })
+
+" LESS
+call s:h("lessVariable",        { "fg": s:green })
+
+" SASS
+call s:h("sassMixing",          { "fg": s:aqua })
+call s:h("sassMixin",           { "fg": s:aqua })
+call s:h("sassFunctionDecl",    { "fg": s:aqua })
+call s:h("sassReturn",          { "fg": s:aqua })
+call s:h("sassClass",           { "fg": s:green })
+call s:h("sassClassChar",       { "fg": s:pink })
+call s:h("sassIdChar",          { "fg": s:pink })
+call s:h("sassControl",         { "fg": s:aqua })
+call s:h("sassFor",             { "fg": s:aqua })
+
+" ruby
+call s:h("rubyInterpolationDelimiter",  {})
+call s:h("rubyInstanceVariable",        {})
+call s:h("rubyGlobalVariable",          {})
+call s:h("rubyClassVariable",           {})
+call s:h("rubyPseudoVariable",          {})
+call s:h("rubyFunction",                { "fg": s:green })
+call s:h("rubyStringDelimiter",         { "fg": s:yellow })
+call s:h("rubyRegexp",                  { "fg": s:yellow })
+call s:h("rubyRegexpDelimiter",         { "fg": s:yellow })
+call s:h("rubySymbol",                  { "fg": s:purple })
+call s:h("rubyEscape",                  { "fg": s:purple })
+call s:h("rubyInclude",                 { "fg": s:pink })
+call s:h("rubyOperator",                { "fg": s:pink })
+call s:h("rubyControl",                 { "fg": s:pink })
+call s:h("rubyClass",                   { "fg": s:pink })
+call s:h("rubyDefine",                  { "fg": s:pink })
+call s:h("rubyException",               { "fg": s:pink })
+call s:h("rubyRailsARAssociationMethod",{ "fg": s:orange })
+call s:h("rubyRailsARMethod",           { "fg": s:orange })
+call s:h("rubyRailsRenderMethod",       { "fg": s:orange })
+call s:h("rubyRailsMethod",             { "fg": s:orange })
+call s:h("rubyConstant",                { "fg": s:aqua })
+call s:h("rubyBlockArgument",           { "fg": s:orange })
+call s:h("rubyBlockParameter",          { "fg": s:orange })
+
+" eruby
+call s:h("erubyDelimiter",              {})
+call s:h("erubyRailsMethod",            { "fg": s:aqua })
+
+" c
+call s:h("cLabel",                      { "fg": s:pink })
+call s:h("cStructure",                  { "fg": s:aqua })
+call s:h("cStorageClass",               { "fg": s:pink })
+call s:h("cInclude",                    { "fg": s:pink })
+call s:h("cDefine",                     { "fg": s:pink })
+call s:h("cSpecial",                    { "fg": s:purple })
+
+" Markdown
+call s:h("markdownCode",       { "fg": s:purple, "format": "italic" } )
+call s:h("markdownListMarker", { "fg": s:purple                     } )
+
+" vim-notes
+call s:h("notesTitle",        { "fg": s:aqua,        "format": "bold"        } )
+call s:h("notesAtxMarker",    { "fg": s:pink,        "format": "italic,bold" } )
+call s:h("notesShortHeading", { "fg": s:white,       "format": "bold"        } )
+call s:h("notesListBullet",   { "fg": s:purple                               } )
+call s:h("notesListNumber",   { "fg": s:purple,      "format": "italic"      } )
+call s:h("notesBold",         {                      "format": "bold"        } )
+call s:h("notesDoneMarker",   { "fg": s:green                                } )
+
+" Terminal Colors
+" ---------------
+if has('nvim')
+  let g:terminal_color_0  = s:black.gui
+  let g:terminal_color_1  = s:red.gui
+  let g:terminal_color_2  = s:green.gui
+  let g:terminal_color_3  = s:yellow.gui
+  let g:terminal_color_4  = s:aqua.gui
+  let g:terminal_color_5  = s:purple.gui
+  let g:terminal_color_6  = s:cyan.gui
+  let g:terminal_color_7  = s:white.gui
+  let g:terminal_color_8  = s:darkgrey.gui
+  let g:terminal_color_9  = s:pink.gui
+  let g:terminal_color_10 = s:br_green.gui
+  let g:terminal_color_11 = s:br_yellow.gui
+  let g:terminal_color_12 = s:br_blue.gui
+  let g:terminal_color_13 = s:br_purple.gui
+  let g:terminal_color_14 = s:br_cyan.gui
+  let g:terminal_color_15 = s:br_white.gui
 else
-    let s:molokai_original = 0
+  let g:terminal_ansi_colors = [
+        \ s:black.gui,
+        \ s:red.gui,
+        \ s:green.gui,
+        \ s:yellow.gui,
+        \ s:aqua.gui,
+        \ s:purple.gui,
+        \ s:cyan.gui,
+        \ s:white.gui,
+        \ s:darkgrey.gui,
+        \ s:pink.gui,
+        \ s:br_green.gui,
+        \ s:br_yellow.gui,
+        \ s:br_blue.gui,
+        \ s:br_purple.gui,
+        \ s:br_cyan.gui,
+        \ s:br_white.gui]
 endif
-
-
-hi Boolean         guifg=#AE81FF
-hi Character       guifg=#E6DB74
-hi Number          guifg=#AE81FF
-hi String          guifg=#E6DB74
-hi Conditional     guifg=#F92672               gui=bold
-hi Constant        guifg=#AE81FF               gui=bold
-hi Cursor          guifg=#000000 guibg=#F8F8F0
-hi iCursor         guifg=#000000 guibg=#F8F8F0
-hi Debug           guifg=#BCA3A3               gui=bold
-hi Define          guifg=#66D9EF
-hi Delimiter       guifg=#8F8F8F
-hi DiffAdd                       guibg=#13354A
-hi DiffChange      guifg=#89807D guibg=#4C4745
-hi DiffDelete      guifg=#960050 guibg=#1E0010
-hi DiffText                      guibg=#4C4745 gui=italic,bold
-
-hi Directory       guifg=#A6E22E               gui=bold
-hi Error           guifg=#E6DB74 guibg=#1E0010
-hi ErrorMsg        guifg=#F92672 guibg=#232526 gui=bold
-hi Exception       guifg=#A6E22E               gui=bold
-hi Float           guifg=#AE81FF
-hi FoldColumn      guifg=#465457 guibg=#000000
-hi Folded          guifg=#465457 guibg=#000000
-hi Function        guifg=#A6E22E
-hi Identifier      guifg=#FD971F
-hi Ignore          guifg=#808080 guibg=bg
-hi IncSearch       guifg=#C4BE89 guibg=#000000
-
-hi Keyword         guifg=#F92672               gui=bold
-hi Label           guifg=#E6DB74               gui=none
-hi Macro           guifg=#C4BE89               gui=italic
-hi SpecialKey      guifg=#66D9EF               gui=italic
-
-hi MatchParen      guifg=#000000 guibg=#FD971F gui=bold
-hi ModeMsg         guifg=#E6DB74
-hi MoreMsg         guifg=#E6DB74
-hi Operator        guifg=#F92672
-
-" complete menu
-hi Pmenu           guifg=#66D9EF guibg=#000000
-hi PmenuSel                      guibg=#808080
-hi PmenuSbar                     guibg=#080808
-hi PmenuThumb      guifg=#66D9EF
-
-hi PreCondit       guifg=#A6E22E               gui=bold
-hi PreProc         guifg=#A6E22E
-hi Question        guifg=#66D9EF
-hi Repeat          guifg=#F92672               gui=bold
-hi Search          guifg=#000000 guibg=#FFE792
-" marks
-hi SignColumn      guifg=#A6E22E guibg=#232526
-hi SpecialChar     guifg=#F92672               gui=bold
-hi SpecialComment  guifg=#7E8E91               gui=bold
-hi Special         guifg=#66D9EF guibg=bg      gui=italic
-if has("spell")
-    hi SpellBad    guisp=#FF0000 gui=undercurl
-    hi SpellCap    guisp=#7070F0 gui=undercurl
-    hi SpellLocal  guisp=#70F0F0 gui=undercurl
-    hi SpellRare   guisp=#FFFFFF gui=undercurl
-endif
-hi Statement       guifg=#F92672               gui=bold
-hi StatusLine      guifg=#455354 guibg=fg
-hi StatusLineNC    guifg=#808080 guibg=#080808
-hi StorageClass    guifg=#FD971F               gui=italic
-hi Structure       guifg=#66D9EF
-hi Tag             guifg=#F92672               gui=italic
-hi Title           guifg=#ef5939
-hi Todo            guifg=#FFFFFF guibg=bg      gui=bold
-
-hi Typedef         guifg=#66D9EF
-hi Type            guifg=#66D9EF               gui=none
-hi Underlined      guifg=#808080               gui=underline
-
-hi VertSplit       guifg=#808080 guibg=#080808 gui=bold
-hi VisualNOS                     guibg=#403D3D
-hi Visual                        guibg=#403D3D
-hi WarningMsg      guifg=#FFFFFF guibg=#333333 gui=bold
-hi WildMenu        guifg=#66D9EF guibg=#000000
-
-hi TabLineFill     guifg=#1B1D1E guibg=#1B1D1E
-hi TabLine         guibg=#1B1D1E guifg=#808080 gui=none
-
-if s:molokai_original == 1
-   hi Normal          guifg=#F8F8F2 guibg=#272822
-   hi Comment         guifg=#75715E
-   hi CursorLine                    guibg=#3E3D32
-   hi CursorLineNr    guifg=#FD971F               gui=none
-   hi CursorColumn                  guibg=#3E3D32
-   hi ColorColumn                   guibg=#3B3A32
-   hi LineNr          guifg=#BCBCBC guibg=#3B3A32
-   hi NonText         guifg=#75715E
-   hi SpecialKey      guifg=#75715E
-else
-   hi Normal          guifg=#F8F8F2 guibg=#1B1D1E
-   hi Comment         guifg=#7E8E91
-   hi CursorLine                    guibg=#293739
-   hi CursorLineNr    guifg=#FD971F               gui=none
-   hi CursorColumn                  guibg=#293739
-   hi ColorColumn                   guibg=#232526
-   hi LineNr          guifg=#465457 guibg=#232526
-   hi NonText         guifg=#465457
-   hi SpecialKey      guifg=#465457
-end
-
-"
-" Support for 256-color terminal
-"
-if &t_Co > 255
-   if s:molokai_original == 1
-      hi Normal                   ctermbg=234
-      hi CursorLine               ctermbg=235   cterm=none
-      hi CursorLineNr ctermfg=208               cterm=none
-   else
-      hi Normal       ctermfg=252 ctermbg=233
-      hi CursorLine               ctermbg=234   cterm=none
-      hi CursorLineNr ctermfg=208               cterm=none
-   endif
-   hi Boolean         ctermfg=135
-   hi Character       ctermfg=144
-   hi Number          ctermfg=135
-   hi String          ctermfg=144
-   hi Conditional     ctermfg=161               cterm=bold
-   hi Constant        ctermfg=135               cterm=bold
-   hi Cursor          ctermfg=16  ctermbg=253
-   hi Debug           ctermfg=225               cterm=bold
-   hi Define          ctermfg=81
-   hi Delimiter       ctermfg=241
-
-   hi DiffAdd                     ctermbg=24
-   hi DiffChange      ctermfg=181 ctermbg=239
-   hi DiffDelete      ctermfg=162 ctermbg=53
-   hi DiffText                    ctermbg=102 cterm=bold
-
-   hi Directory       ctermfg=118               cterm=bold
-   hi Error           ctermfg=219 ctermbg=89
-   hi ErrorMsg        ctermfg=199 ctermbg=16    cterm=bold
-   hi Exception       ctermfg=118               cterm=bold
-   hi Float           ctermfg=135
-   hi FoldColumn      ctermfg=67  ctermbg=16
-   hi Folded          ctermfg=67  ctermbg=16
-   hi Function        ctermfg=118
-   hi Identifier      ctermfg=208               cterm=none
-   hi Ignore          ctermfg=244 ctermbg=232
-   hi IncSearch       ctermfg=193 ctermbg=16
-
-   hi keyword         ctermfg=161               cterm=bold
-   hi Label           ctermfg=229               cterm=none
-   hi Macro           ctermfg=193
-   hi SpecialKey      ctermfg=81
-
-   hi MatchParen      ctermfg=233  ctermbg=208 cterm=bold
-   hi ModeMsg         ctermfg=229
-   hi MoreMsg         ctermfg=229
-   hi Operator        ctermfg=161
-
-   " complete menu
-   hi Pmenu           ctermfg=81  ctermbg=16
-   hi PmenuSel        ctermfg=255 ctermbg=242
-   hi PmenuSbar                   ctermbg=232
-   hi PmenuThumb      ctermfg=81
-
-   hi PreCondit       ctermfg=118               cterm=bold
-   hi PreProc         ctermfg=118
-   hi Question        ctermfg=81
-   hi Repeat          ctermfg=161               cterm=bold
-   hi Search          ctermfg=0   ctermbg=222   cterm=NONE
-
-   " marks column
-   hi SignColumn      ctermfg=118 ctermbg=235
-   hi SpecialChar     ctermfg=161               cterm=bold
-   hi SpecialComment  ctermfg=245               cterm=bold
-   hi Special         ctermfg=81
-   if has("spell")
-       hi SpellBad                ctermbg=52
-       hi SpellCap                ctermbg=17
-       hi SpellLocal              ctermbg=17
-       hi SpellRare  ctermfg=none ctermbg=none  cterm=reverse
-   endif
-   hi Statement       ctermfg=161               cterm=bold
-   hi StatusLine      ctermfg=238 ctermbg=253
-   hi StatusLineNC    ctermfg=244 ctermbg=232
-   hi StorageClass    ctermfg=208
-   hi Structure       ctermfg=81
-   hi Tag             ctermfg=161
-   hi Title           ctermfg=166
-   hi Todo            ctermfg=231 ctermbg=232   cterm=bold
-
-   hi Typedef         ctermfg=81
-   hi Type            ctermfg=81                cterm=none
-   hi Underlined      ctermfg=244               cterm=underline
-
-   hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
-   hi VisualNOS                   ctermbg=238
-   hi Visual                      ctermbg=235
-   hi WarningMsg      ctermfg=231 ctermbg=238   cterm=bold
-   hi WildMenu        ctermfg=81  ctermbg=16
-
-   hi Comment         ctermfg=59
-   hi CursorColumn                ctermbg=236
-   hi ColorColumn                 ctermbg=236
-   hi LineNr          ctermfg=250 ctermbg=236
-   hi NonText         ctermfg=59
-
-   hi SpecialKey      ctermfg=59
-
-   if exists("g:rehash256") && g:rehash256 == 1
-       hi Normal       ctermfg=252 ctermbg=234
-       hi CursorLine               ctermbg=236   cterm=none
-       hi CursorLineNr ctermfg=208               cterm=none
-
-       hi Boolean         ctermfg=141
-       hi Character       ctermfg=222
-       hi Number          ctermfg=141
-       hi String          ctermfg=222
-       hi Conditional     ctermfg=197               cterm=bold
-       hi Constant        ctermfg=141               cterm=bold
-
-       hi DiffDelete      ctermfg=125 ctermbg=233
-
-       hi Directory       ctermfg=154               cterm=bold
-       hi Error           ctermfg=222 ctermbg=233
-       hi Exception       ctermfg=154               cterm=bold
-       hi Float           ctermfg=141
-       hi Function        ctermfg=154
-       hi Identifier      ctermfg=208
-
-       hi Keyword         ctermfg=197               cterm=bold
-       hi Operator        ctermfg=197
-       hi PreCondit       ctermfg=154               cterm=bold
-       hi PreProc         ctermfg=154
-       hi Repeat          ctermfg=197               cterm=bold
-
-       hi Statement       ctermfg=197               cterm=bold
-       hi Tag             ctermfg=197
-       hi Title           ctermfg=203
-       hi Visual                      ctermbg=238
-
-       hi Comment         ctermfg=244
-       hi LineNr          ctermfg=239 ctermbg=235
-       hi NonText         ctermfg=239
-       hi SpecialKey      ctermfg=239
-   endif
-end
-
-" Must be at the end, because of ctermbg=234 bug.
-" https://groups.google.com/forum/#!msg/vim_dev/afPqwAFNdrU/nqh6tOM87QUJ
-set background=dark

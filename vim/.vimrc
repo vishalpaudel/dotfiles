@@ -1,11 +1,13 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set nocompatible " VI compatible mode is disabled so that VIm things work
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" =============================================================================
 "   PLUGINS
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" =============================================================================
 call plug#begin()
 
+" Load plugins
 " Per file editor config
 Plug 'ciaranm/securemodelines'
 Plug 'editorconfig/editorconfig-vim'
@@ -24,7 +26,8 @@ Plug 'haya14busa/incsearch-easymotion.vim'
 Plug 'wikitopian/hardmode'            " Disable arrow keys and similar
 
 " Copy pasting
-Plug 'svermeulen/vim-yoink'
+" TODO Figure out easyclip family
+" Plug 'svermeulen/vim-yoink'
 
 " Text Manipulation
 Plug 'tpope/vim-sensible'             " Some better defaults
@@ -35,14 +38,15 @@ Plug 'terryma/vim-multiple-cursors'   " Multiple cursors like sublime
 Plug 'godlygeek/tabular'              " For alignment
 Plug 'junegunn/vim-easy-align'        " Easier alignment
 Plug 'foosoft/vim-argwrap'            " convert lists of arguments into blocks of arguments
-Plug 'tpope/vim-endwise'              " Ends control flow indentifiers
+" Interacts with coc Plug 'tpope/vim-endwise'              " Ends control flow indentifiers
 Plug 'tpope/vim-repeat'               " Adds repeat thorugh . to other packages
 Plug 'tpope/vim-speeddating'          " Dates in vim
 
 " GUI enhancements
 Plug 'itchyny/lightline.vim'          " Better Status Bar
 Plug 'mhinz/vim-startify'             " Better start screen
-Plug 'ryanoasis/vim-devicons'         " Nice filetype icons (slow)
+Plug 'scrooloose/nerdtree'            " File explorer
+" Plug 'ryanoasis/vim-devicons'         " Nice filetype icons (slow)
 
 " Plug 'sjl/gundo.vim'                  " Undo Tree
 Plug 'simnalamburt/vim-mundo'         " Gundo fork
@@ -60,18 +64,19 @@ Plug 'airblade/vim-gitgutter'         " Git gutter
 Plug 'tpope/vim-fugitive'             " Git interface
 Plug 'tpope/vim-rhubarb'                    " Enable GBrowse from fugitive for GitHub
 Plug 'junegunn/gv.vim'                " TIG like navigation for vim
+Plug 'xuyuanp/nerdtree-git-plugin'    " Show status of files in NerdTree
 Plug 'tveskag/nvim-blame-line'        " Add git blame on line
 " Tmux GUI
 Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'roxma/vim-tmux-clipboard'
 Plug 'christoomey/vim-tmux-navigator'
 " VIM Ui
-Plug 'wellle/context.vim'
-Plug 'psliwka/vim-smoothie'
+" Plug 'wellle/context.vim'
+" Plug 'psliwka/vim-smoothie'
 
 
 " Autocomplete
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 " Semantic language support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -97,7 +102,7 @@ Plug 'vim-scripts/applescript.vim'
 Plug 'pprovost/vim-ps1'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'mattn/emmet-vim'
-Plug 'norcalli/nvim-colorizer.lua'     " Faster colorzier (only neovim,
+" Plug 'norcalli/nvim-colorizer.lua'     " Faster colorzier (only neovim,
 " reconsider)
 Plug 'liuchengxu/vista.vim'
 Plug 'vim-python/python-syntax'
@@ -107,13 +112,13 @@ Plug 'isobit/vim-caddyfile'
 " Colorschemes
 Plug 'morhetz/gruvbox'
 Plug 'chriskempson/base16-vim'         " Base16 themes
-Plug 'gerw/vim-hilinktrace'            " Syntax Highlighting Tracer
-Plug 'fatih/molokai'                  " Monokai and friends
-Plug 'crusoexia/vim-monokai'
-Plug 'phanviet/vim-monokai-pro'
+" Plug 'gerw/vim-hilinktrace'            " Syntax Highlighting Tracer
+" Plug 'fatih/molokai'                  " Monokai and friends
+" Plug 'crusoexia/vim-monokai'
+" Plug 'phanviet/vim-monokai-pro'
 Plug 'patstockwell/vim-monokai-tasty'
-Plug 'erichdongubler/vim-sublime-monokai'
-Plug 'flazz/vim-colorschemes'          " Bunch of color schemes
+" Plug 'erichdongubler/vim-sublime-monokai'
+" Plug 'flazz/vim-colorschemes'          " Bunch of color schemes
 Plug 'sainnhe/sonokai'                 " Monokai Pro-like scheme
 Plug 'tanvirtin/monokai.nvim'
 Plug 'srcery-colors/srcery-vim'
@@ -130,23 +135,19 @@ Plug 'ihsanturk/neuron.vim'            " For neuron Zettelkasten
 Plug 'liuchengxu/vim-which-key'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
-
-
 if has('nvim-0.5')
     Plug 'phaazon/hop.nvim'
     Plug 'nvim-lua/popup.nvim'
-
     Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
-    " or                                , { 'branch': '0.1.x' }
+    " Plug 'nvim-telescope/telescope.nvim'
 
-    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-    Plug 'p00f/nvim-ts-rainbow'
+    " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+    " Plug 'p00f/nvim-ts-rainbow'
 
-    Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
-    Plug 'nvim-tree/nvim-tree.lua'
+    " Plug 'kyazdani42/nvim-web-devicons' " for file icons
+    " Plug 'kyazdani42/nvim-tree.lua'
 
-    Plug 'TimUntersberger/neogit'
+    " Plug 'TimUntersberger/neogit'
 endif
 
 call plug#end()
@@ -205,9 +206,9 @@ elseif &t_Co < 256
     set nocursorline " looks bad in this mode
 endif
 
-if &diff
-    colorscheme foobar
-endif
+" if &diff
+"     colorscheme foobar
+" endif
 
 
 let g:python_highlight_all = 1
@@ -227,13 +228,12 @@ set number              " show line numbers
 set relativenumber      " show relative numbering
 set showcmd             " show command in bottom bar
 set cursorline          " highlight current line
-set cursorcolumn        " highlight current column
 filetype indent on      " load filetype-specific indent files
 filetype plugin on      " load filetype specific plugin files
 set wildmenu            " visual autocomplete for command menu
 set showmatch           " highlight matching [{()}]
 set laststatus=2        " Show the status line at the bottom
-set mouse= "+=a            " A necessary evil, mouse support
+set mouse+=a            " A necessary evil, mouse support
 set noerrorbells visualbell t_vb=    "Disable annoying error noises
 set splitbelow          " Open new vertical split bottom
 set splitright          " Open new horizontal splits right
@@ -266,15 +266,13 @@ set smartcase           " But make it case sensitive if an uppercase is entered
 vnoremap <C-h> :nohlsearch<cr>
 nnoremap <C-h> :nohlsearch<cr>
 " Ignore files for completion
-set wildignore+=*/.git/*,*/tmp/*,*.swp,*.pdf
+set wildignore+=*/.git/*,*/tmp/*,*.swp
 
 " Undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set undofile " Maintain undo history between sessions
 set undodir=~/.vim/undodir
 
-" Leader
-let mapleader=" "       " leader is space
 
 " Folding
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -282,7 +280,7 @@ set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 " space open/closes folds
-nnoremap <leader> za
+" nnoremap <space> za
 set foldmethod=indent   " fold based on indent level
 " This is especially useful for me since I spend my days in Python.
 " Other acceptable values are marker, manual, expr, syntax, diff.
@@ -321,10 +319,13 @@ nnoremap <C-o> <C-o>zz
 nnoremap <C-i> <C-i>zz
 
 " Very magic by default
-nnoremap ? ?\v
-nnoremap / /\v
-cnoremap %s/ %sm/
+" nnoremap ? ?\v
+" nnoremap / /\v
+" cnoremap %s/ %sm/
 
+
+" Leader
+let mapleader=" "       " leader is space
 
 " Tmux
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -435,7 +436,6 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
 " =============================================================================
 "   PLUGIN CONFIG
 " =============================================================================
@@ -448,11 +448,6 @@ let g:startify_custom_header =[]     " Disable startify header
 " Enabled by default
 let g:rainbow_active = 1
 
-" Telescope
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " ALE
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -583,6 +578,10 @@ if has('python3')
     let g:gundo_prefer_python3 = 1
 endif
 
+" * NERDTree
+" Close vim if only window left is NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " * FZF
 set rtp+=/usr/local/opt/fzf
 let g:fzf_layout = { 'down': '~20%' }
@@ -707,6 +706,7 @@ nnoremap <Leader>u :MundoToggle<CR>
 nnoremap <Leader>oa :ALEToggle<CR>
 nnoremap <Leader>ob :ToggleBlameLine<CR>
 nnoremap <Leader>oc :ColorToggle<CR>
+nnoremap <Leader>oe :NERDTreeToggle<CR>
 nnoremap <Leader>of :ALEfixToggle<CR>
 nnoremap <Leader>og :GitGutterToggle<CR>
 nnoremap <Leader>ol :ColorColumnToggle<CR>
@@ -715,6 +715,7 @@ nnoremap <Leader>on :LineNumberToggle<CR>
 nnoremap <Leader>op :RainbowToggle<CR>
 nnoremap <Leader>ot :Vista!!<CR>
 nnoremap <Leader>os :setlocal spell! spelllang=en_us<CR>
+" nnoremap <Leader>nf :NERDTreeFind<CR>
 
 
 "  z   -- Toggle Pane Zoom
@@ -792,17 +793,22 @@ if exists('g:coc_custom_config')
     autocmd User EasyMotionPromptEnd silent! CocEnable
 endif
 
-nnoremap <Leader>s :call <SID>StripTrailingWhitespaces()<CR>
+" nnoremap <Leader>s :call <SID>StripTrailingWhitespaces()<CR>
 
 " FN
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Spellcheck Keyboard shorcut (https://vim.fandom.com/wiki/Toggle_spellcheck_with_function_keys)
 map <F5> :setlocal spell! spelllang=en_us<CR>
+map <F7> :NERDTreeToggle<CR>
 map <F8> :Vista!!<CR>
 
 " =============================================================================
 " # Autocommands
 " =============================================================================
+
+" Prevent accidental writes to buffers that shouldn't be edited
+autocmd BufRead *.orig set readonly
+autocmd BufRead *.bk set readonly
 
 " Jump to last edit position on opening file
 if has("autocmd")
@@ -810,12 +816,19 @@ if has("autocmd")
   au BufReadPost * if expand('%:p') !~# '\m/\.git/' && line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+
 " Help filetype detection
 autocmd BufRead *.plot set filetype=gnuplot
 autocmd BufRead *.md set filetype=markdown
 autocmd BufRead *.tex set filetype=tex
 autocmd BufRead *.rss set filetype=xml
 
-" Prevent accidental writes to buffers that shouldn't be edited
-autocmd BufRead *.orig set readonly
-autocmd BufRead *.bk set readonly
+" =============================================================================
+"   LOCAL CONFIG
+" =============================================================================
+
+" local customizations in ~/.vimrc_local
+let $LOCALFILE=expand("~/.vimrc_local")
+if filereadable($LOCALFILE)
+    source $LOCALFILE
+endif

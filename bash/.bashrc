@@ -35,7 +35,7 @@ function git_branch() {
 function bash_prompt(){
     error_code=$?
     # PS1=${wht}'${VIRTUAL_ENV##*/} '${blu}'$(git_branch)'${ylw}' $error_code'${pur}' \W'${red}' >'${ylw}'>'${cyn}'> '${clr}
-    PS1=${ylw}'$error_code'${pur}' \W'${red}' >'${ylw}'>'${cyn}'> '${clr}
+    PS1=${ylw}'$error_code'${pur}' \W'${red}' ❯'${ylw}'❯'${cyn}'❯ '${clr}
 }
 PROMPT_COMMAND=bash_prompt
 
